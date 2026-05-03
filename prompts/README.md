@@ -62,3 +62,15 @@
 - 業務カテゴリ別（CSV処理、帳票補助、文書整形など）の手順書作成プロンプト追加
 - 手順書の差分更新（版更新）専用プロンプト追加
 - 障害報告書、更新通知文、庁内周知文の作成プロンプト追加
+
+
+## 8. prompts/development 配下のファイル
+
+- `development/01_start_new_tool_from_docs.md`  
+  新規ツール開始時に、実装前ドキュメントを先に作るためのプロンプト。
+
+- `development/02_review_generated_tool.md`  
+  生成済みツールの方針適合・安全性・文書充足をレビューするプロンプト。
+
+- `development/03_prepare_release_documents.md`  
+  配布前にREADME/チェックリスト/手順書を整備・差分確認するプロンプト。

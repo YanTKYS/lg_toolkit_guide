@@ -111,6 +111,7 @@
 
 - `prompts/` は、`docs` を実務で使うための「AI投入用プロンプト集」です。
 - 手順書作成やレビューを行う際は、`prompts/README.md` と `prompts/manuals/` を使用してください。
+- `prompts/development/` には、新規開発開始・生成物レビュー・配布前文書整備のプロンプトを配置します。
 - 使う前に、必ず `docs/00_policy.md` と `docs/01_ai_coding_rules.md` を確認してください。
 
 
