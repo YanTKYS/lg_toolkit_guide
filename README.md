@@ -128,7 +128,7 @@ Vibe-coding実行環境によっては、外部GitHubへのアクセスが制限
 その場合は、次の順で対応してください。
 
 1. `exports/guide_context.md` をプロンプトに貼り付けて参照させる。  
-2. 可能であれば `exports/guide_context.md` を対象リポジトリへ同梱する。  
+2. 可能であれば `exports/guide_context.md` を対象リポジトリの `reference/guide_context.md` としてコピーして同梱する。  
 3. さらに必要な場合は `docs/` と `prompts/` の必要箇所を抜粋して追加提示する。  
 4. ガイド本文が参照できない状態で推測実装は行わず、最小ガイド提示を優先する。
 

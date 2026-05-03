@@ -33,9 +33,9 @@
 
 Vibe-coding実行環境で本リポジトリのGitHub URLを直接読めない場合（例: `CONNECT tunnel failed, response 403`）は、以下の手順で進めること。
 
-1. `exports/guide_context.md` の提示を依頼し、内容を必ず参照する。  
+1. `exports/guide_context.md` の提示または同梱（例: `reference/guide_context.md`）を依頼し、内容を必ず参照する。  
 2. そのうえで不足情報があれば、`docs/` や `prompts/` の必要部分のみ追加提示を依頼する。  
-3. ガイド未参照状態で推測実装を開始しない。
+3. ガイド未参照状態では、実装を開始しない（推測実装禁止）。
 
 ## 目的
 
