@@ -105,3 +105,10 @@
 - 言語別の詳細テストデータ作成例（JavaScript / PowerShell / C#）
 - 部署内配布手順テンプレート
 - 変更管理・版管理の運用テンプレート
+
+
+## 11. prompts配下（AI実行用プロンプト）
+
+- `prompts/` は、`docs` を実務で使うための「AI投入用プロンプト集」です。
+- 手順書作成やレビューを行う際は、`prompts/README.md` と `prompts/manuals/` を使用してください。
+- 使う前に、必ず `docs/00_policy.md` と `docs/01_ai_coding_rules.md` を確認してください。
