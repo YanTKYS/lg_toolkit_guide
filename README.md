@@ -112,3 +112,9 @@
 - `prompts/` は、`docs` を実務で使うための「AI投入用プロンプト集」です。
 - 手順書作成やレビューを行う際は、`prompts/README.md` と `prompts/manuals/` を使用してください。
 - 使う前に、必ず `docs/00_policy.md` と `docs/01_ai_coding_rules.md` を確認してください。
+
+
+## 12. examples配下（ドキュメント記入例）
+
+- `examples/` は、`docs` と `prompts` を使って実際にどう記入するかを示すサンプル文書集です。
+- 実装コードは含まず、設計書・README・チェックリスト・手順書の記入例のみを扱います。
