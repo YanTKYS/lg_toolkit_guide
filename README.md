@@ -53,10 +53,16 @@
 - `docs/07_prompt_template.md`  
   Vibe-coding依頼時に使う用途別プロンプトテンプレート。
 
+- `docs/08_test_scenarios_template.md`  
+  配布前の正常系・異常系・再実行系を確認するテストシナリオテンプレート。
+
+- `docs/09_operation_handover_template.md`  
+  部署間移管・異動時に使う運用引継ぎテンプレート。
+
 ## 5. Vibe-codingでの使い方
 
 1. まず `docs/00_policy.md` と `docs/01_ai_coding_rules.md` をAIに必ず読ませる。  
-2. 次に、用途に応じて `docs/02`〜`docs/07` を追加で読ませる。  
+2. 次に、用途に応じて `docs/02`〜`docs/09` を追加で読ませる。  
 3. 新規作成・修正・レビューの依頼は `docs/07_prompt_template.md` をひな型にする。  
 4. 実装後は `docs/05_release_checklist.md` で確認する。  
 5. READMEは `docs/06_readme_template.md` で作成・更新する。
@@ -69,6 +75,7 @@
 4. `docs/03_security_privacy_rules.md` と `docs/04_ui_ux_rules.md` で設計・実装を点検する。
 5. `docs/05_release_checklist.md` で配布可否を判定する。
 6. `docs/06_readme_template.md` で利用者向け説明を整える。
+7. `docs/08_test_scenarios_template.md` と `docs/09_operation_handover_template.md` で配布前確認と引継ぎ準備を完了する。
 
 ## 7. 共通部品化は後回しにする方針
 
@@ -86,7 +93,7 @@
 ## 9. 今後の拡張予定
 
 - よく使う業務カテゴリ別の設計例（CSV、日付計算、帳票補助など）
-- テスト観点テンプレート（正常系・異常系・再実行系）
+- 言語別の詳細テストデータ作成例（JavaScript / PowerShell / C#）
 - 部署内配布手順テンプレート
 - 変更管理・版管理の運用テンプレート
 
