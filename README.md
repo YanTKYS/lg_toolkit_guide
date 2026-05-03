@@ -119,3 +119,20 @@
 
 - `examples/` は、`docs` と `prompts` を使って実際にどう記入するかを示すサンプル文書集です。
 - 実装コードは含まず、設計書・README・チェックリスト・手順書の記入例のみを扱います。
+
+
+## 13. Vibe-coding時の参照方法（GitHub URLを直接読めない場合）
+
+Vibe-coding実行環境によっては、外部GitHubへのアクセスが制限され、`git clone` やURL参照に失敗する場合があります（例: `CONNECT tunnel failed, response 403`）。
+
+その場合は、次の順で対応してください。
+
+1. `exports/guide_context.md` をプロンプトに貼り付けて参照させる。  
+2. 可能であれば `exports/guide_context.md` を対象リポジトリへ同梱する。  
+3. さらに必要な場合は `docs/` と `prompts/` の必要箇所を抜粋して追加提示する。  
+4. ガイド本文が参照できない状態で推測実装は行わず、最小ガイド提示を優先する。
+
+推奨運用:
+
+- 通常時: `README.md` → `docs/` → `prompts/` → `examples/` の順で参照。
+- 参照不能時: `exports/guide_context.md` を起点にし、足りない情報だけ追加提示。

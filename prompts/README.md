@@ -74,3 +74,12 @@
 
 - `development/03_prepare_release_documents.md`  
   配布前にREADME/チェックリスト/手順書を整備・差分確認するプロンプト。
+
+
+## 9. GitHub URLを直接読めない場合
+
+Vibe-coding実行環境で外部GitHubへ接続できない場合は、次を実施する。
+
+1. `exports/guide_context.md` をAIへ直接提示する。  
+2. 必要に応じて、対象タスクに関係する `docs/` と `prompts/` の該当部分を追記する。  
+3. ガイド本文未参照のまま推測で進めず、追加コンテキスト提供を依頼する。
