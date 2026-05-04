@@ -132,6 +132,13 @@ Vibe-coding実行環境によっては、外部GitHubへのアクセスが制限
 3. さらに必要な場合は `guides/` と `prompts/` の必要箇所を抜粋して追加提示する。  
 4. ガイド本文が参照できない状態で推測実装は行わず、最小ガイド提示を優先する。
 
+補足:
+
+- `exports/guide_context.md` は、同梱方式でも使えるように標準成果物名と標準構成を含む。
+- 標準成果物には、ルート直下の `development_report.md` も含む。
+- `lg_toolkit_guide` 本体の中核ガイド文書は `guides/` に置く。
+- 実ツール側では、設計・チェック・引継ぎ文書置き場として `docs/` を使用してよい。
+
 推奨運用:
 
 - 通常時: `README.md` → `guides/` → `prompts/` → `examples/` の順で参照。
@@ -193,4 +200,3 @@ Pagesの入口は `index.md` です。
 2. 失敗時は `exports/guide_context.md` を対象リポジトリへ `reference/guide_context.md` として同梱する。  
 3. さらに不足する場合は、必要な `guides/` と `prompts/` の該当部分のみ追加提示する。  
 4. ガイド未参照状態では実装を開始しない。
-

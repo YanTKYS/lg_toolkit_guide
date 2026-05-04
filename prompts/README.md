@@ -57,6 +57,36 @@
 - できること/できないこと、責任分界、問い合わせ先を明記する。
 - 管理者向け・運用向け・利用者向けの読者を混在させない。
 
+実ツール作成時の標準成果物（原則）:
+
+- `README.md`
+- `development_report.md`（ルート直下・同一リポジトリ内で1つ）
+- `docs/tool_design.md`
+- `docs/release_checklist.md`
+- `docs/test_scenarios.md`
+- `docs/operation_handover.md`
+- `manuals/admin_manual.md`
+- `manuals/operator_manual.md`（省略しない）
+- `manuals/user_manual.md`
+- `src/index.html`
+- `src/script.js`
+- `src/style.css`
+
+Markdown品質条件（作成先成果物にも適用）:
+
+- 見出し、本文、箇条書き、表、チェックボックスを適切に改行する。
+- 文書全体を1行または数行に圧縮しない。
+- raw表示でも読みやすいMarkdownにする。
+- 表はMarkdown表として整形する。
+- チェックは `- [ ]` を使う。
+- 適用対象: `README.md`、`docs/*.md`、`manuals/*.md`、`reference/guide_context.md`、`development_report.md` などの報告書。
+- Markdown成果物は作成後にraw表示相当で自己点検し、1行または数行への圧縮がないことを確認する。
+
+HTML / CSS / JavaScript の整形条件:
+
+- `src/index.html`、`src/script.js`、`src/style.css` は改行・インデントを適切に行う。
+- `src/script.js` や `src/style.css` を1行化しない。
+
 ## 7. 今後の拡張方針
 
 - 業務カテゴリ別（CSV処理、帳票補助、文書整形など）の手順書作成プロンプト追加

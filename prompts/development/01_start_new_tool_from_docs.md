@@ -52,8 +52,68 @@ Vibe-coding実行環境で本リポジトリのGitHub URLを直接読めない�
 3. リリース前チェックリスト
 4. テストシナリオ
 5. 運用引継ぎメモ
-6. 必要に応じた管理者向け / 運用担当部署向け / 利用者向け手順書
+6. 管理者向け / 運用担当部署向け / 利用者向け手順書（3種類すべて）
 7. 実装方針（採用技術、非採用技術、段階的実装計画）
+
+## 作成先ツールリポジトリの標準構成例
+
+以下を標準構成として扱うこと。
+
+```text
+README.md
+development_report.md
+
+docs/
+  tool_design.md
+  release_checklist.md
+  test_scenarios.md
+  operation_handover.md
+
+manuals/
+  admin_manual.md
+  operator_manual.md
+  user_manual.md
+
+src/
+  index.html
+  script.js
+  style.css
+
+reference/
+  guide_context.md
+```
+
+補足:
+
+- `reference/guide_context.md` は同梱方式で進める場合のみ配置する。
+- URL参照方式（Pages/raw）で進める場合は、`reference/guide_context.md` は必須ではない。
+
+## 標準成果物ファイル名（原則）
+
+```text
+README.md
+development_report.md
+docs/tool_design.md
+docs/release_checklist.md
+docs/test_scenarios.md
+docs/operation_handover.md
+manuals/admin_manual.md
+manuals/operator_manual.md
+manuals/user_manual.md
+src/index.html
+src/script.js
+src/style.css
+```
+
+- `docs/design.md`、`docs/checklist.md`、`docs/test.md` などの短縮名は原則使わない。
+- `manuals/operator_manual.md` は省略しない（所管部署・運用担当部署・一次対応者向け）。
+- 開発報告書はルート直下の `development_report.md` に作成し、同一リポジトリ内に複数作成しない。
+
+## guide_contextのみ参照する比較テスト時の追加ルール
+
+- `reference/guide_context.md` のみ参照する指定がある場合、外部URLや追加参照先を見に行かない。
+- その場合でも、標準構成と標準成果物名を維持する。
+- 判断材料が足りない場合は推測で省略せず、「判断しづらかった点」として報告する。
 
 ## 進め方
 
@@ -86,4 +146,11 @@ Vibe-coding実行環境で本リポジトリのGitHub URLを直接読めない�
 - 見出し付きMarkdown
 - 箇条書き・表・チェックリストを適切に使う
 - 文書全体を1行に圧縮しない
+- raw表示でも読みやすいMarkdownにする
+- 表はMarkdown表として整形する
+- チェックリストは `- [ ]` 形式で記載する
+- 上記Markdown品質条件を、作成先の `README.md`、`docs/*.md`、`manuals/*.md`、`reference/guide_context.md`、報告書にも適用する
+- Markdown成果物は作成後にraw表示相当で自己点検し、1行または数行への圧縮がないことを確認する
+- `src/index.html`、`src/script.js`、`src/style.css` は保守性のため改行・インデントする
+- `src/script.js` や `src/style.css` を1行化しない
 - 最後に「実装に進んでよいか（承認待ち）」を明記する
