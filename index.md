@@ -31,7 +31,8 @@
 
 - 代替手段A: `exports/guide_context.md` をプロンプトへ貼り付ける。
 - 代替手段B: 対象リポジトリに `reference/guide_context.md` として同梱する。
-- 代替手段C: 必要な `docs/` / `prompts/` の抜粋だけ追加提示する。
+- 代替手段C: MCP Fetchが使える場合は、Pagesまたはraw URLの取得を試す。
+- 代替手段D: 必要な `docs/` / `prompts/` の抜粋だけ追加提示する。
 
 ## 5. exports/guide_context.md
 

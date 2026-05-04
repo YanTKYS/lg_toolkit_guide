@@ -35,9 +35,10 @@ Vibe-coding実行環境で本リポジトリのGitHub URLを直接読めない�
 
 1. まず GitHub Pages を確認する（`https://yantkys.github.io/lg_toolkit_guide/`）。  
 2. Pagesが読めない場合は raw を確認する（`https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md`）。  
-3. rawも読めない場合は、`reference/guide_context.md` として同梱を依頼し、内容を必ず参照する。  
-4. そのうえで不足情報があれば、`docs/` や `prompts/` の必要部分のみ追加提示を依頼する。  
-5. ガイド未参照状態では、実装を開始しない（推測実装禁止）。
+3. rawも読めない場合でMCP Fetchが使えるなら、MCP FetchでPagesまたはraw取得を試す。  
+4. MCP Fetchでも読めない場合は、`reference/guide_context.md` として同梱を依頼し、内容を必ず参照する。  
+5. そのうえで不足情報があれば、`docs/` や `prompts/` の必要部分のみ追加提示を依頼する。  
+6. ガイド未参照状態では、実装を開始しない（推測実装禁止）。
 
 ## 目的
 

@@ -146,7 +146,8 @@ Vibe-coding実行環境によっては、外部GitHubへのアクセスが制限
 2. raw.githubusercontent.com  
    `https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md`
 3. 対象リポジトリ内に同梱した `reference/guide_context.md`
-4. GitHubリポジトリURL  
+4. MCP FetchでGitHub Pagesまたはraw URLを取得
+5. GitHubリポジトリURL  
    `https://github.com/YanTKYS/lg_toolkit_guide`
 
 > 実務上もっとも確実なのは、対象リポジトリへ `reference/guide_context.md` を同梱する方式です。
@@ -162,7 +163,10 @@ https://yantkys.github.io/lg_toolkit_guide/
 2. raw.githubusercontent.com
 https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md
 
-どちらかを参照できた場合は、guide_context の内容を要約してください。
+3. MCP Fetch
+MCP Fetchが利用可能な場合は、上記いずれかのURLをfetchツールで取得してください。
+
+いずれかを参照できた場合は、guide_context の内容を要約してください。
 
 どちらも参照できない場合は、実装を開始せず、参照できない理由を報告してください。
 その場合は、対象リポジトリ内の reference/guide_context.md として同梱する方式に切り替えます。

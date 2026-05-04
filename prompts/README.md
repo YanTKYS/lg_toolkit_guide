@@ -110,5 +110,6 @@ Vibe-coding実行環境で外部GitHubへ接続できない場合は、次を実
 | GitHub Pages | `https://yantkys.github.io/lg_toolkit_guide/` | Webページとして導線付きで参照したい | 環境によって403になる場合がある |
 | raw参照 | `https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md` | 最小ガイド本文を直接取得したい | セッションによってrawが遮断される場合がある |
 | 同梱参照 | `reference/guide_context.md` | 参照制限がある環境で最も確実に使いたい | コピー元との差分管理が必要 |
+| MCP Fetch参照 | Fetch MCP Server経由でPages/rawを取得 | WebFetch失敗時の補助手段として試せる | 必ず成功するわけではなく、MCP可否・経路・設定に依存 |
 
-推奨: Pages → raw → 同梱の順で確認し、最終的には同梱方式を標準運用にする。
+推奨: Pages → raw → （必要時）MCP Fetch → 同梱の順で確認し、最終的には同梱方式を標準運用にする。
