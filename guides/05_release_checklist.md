@@ -97,11 +97,27 @@
 
 ## 12. 文書・ファイル整形チェック
 
-- [ ] Markdownファイル（README / docs / manuals / 報告書）がraw表示でも読みやすい。
-- [ ] Markdownの見出し、箇条書き、表、チェックリストが適切に改行されている。
-- [ ] HTML / CSS / JavaScript が適切に改行・インデントされている。
-- [ ] `src/script.js` や `src/style.css` が1行化されていない。
+- [ ] `README.md` がraw表示でも読みやすい。
+- [ ] `docs/*.md` がraw表示でも読みやすい。
+- [ ] `manuals/*.md` がraw表示でも読みやすい。
+- [ ] `development_report.md` がraw表示でも読みやすい。
+- [ ] 見出し、本文、箇条書き、表、チェックボックスが適切に改行されている。
+- [ ] 各Markdownファイルが数行だけに圧縮されていない。
+- [ ] Markdown表が複数行で表現されている。
+- [ ] チェックリストが `- [ ]` 形式で1項目ずつ改行されている。
+- [ ] `src/index.html` が適切に改行・インデントされている。
+- [ ] `src/script.js` が適切に改行・インデントされている。
+- [ ] `src/style.css` が適切に改行・インデントされている。
+- [ ] JavaScript / CSS / HTML が1行または数行に圧縮されていない。
+- [ ] 後任者が読める程度の構造になっている。
 - [ ] `development_report.md` がルート直下に1つだけ存在する。
+
+確認コマンド例（可能な場合）:
+
+```bash
+wc -l README.md docs/*.md manuals/*.md development_report.md
+wc -l src/*.html src/*.css src/*.js
+```
 
 ## 13. 未対応事項の記録欄
 

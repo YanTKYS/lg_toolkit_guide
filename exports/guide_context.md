@@ -189,11 +189,35 @@ src/style.css
   - `reference/guide_context.md`
   - `development_report.md` などの報告書
 
+Markdown整形の実確認ルール:
+
+- 「raw表示でも読みやすい」と自己申告するだけでなく、実ファイルを開いて確認する。
+- 見出し、本文、箇条書き、表、チェックボックスが適切に改行されていることを確認する。
+- `README.md`、`docs/*.md`、`manuals/*.md`、`development_report.md` が数行だけに圧縮されていないことを確認する。
+- Markdown文書が3〜5行程度しかない場合は、原則として整形不備を疑い、再整形する。
+- 箇条書き、チェックリスト、表は1項目または1行ごとに改行する。
+
 ## 16. HTML / CSS / JavaScript の整形条件
 
 - `src/index.html`、`src/script.js`、`src/style.css` は、保守しやすいように適切な改行とインデントで記述する。
 - `src/script.js` や `src/style.css` を1行に圧縮しない。
 - 作成後に、raw表示相当で可読性を自己点検する。
+
+コード整形の実確認ルール:
+
+- HTML / CSS / JavaScript も、作成後に実ファイルを開いて確認する。
+- `src/index.html`、`src/script.js`、`src/style.css` が1行または数行に圧縮されていないことを確認する。
+- 関数、条件分岐、イベント処理、CSSルールごとに適切に改行・インデントする。
+- JavaScript / CSS / HTML が3〜5行程度しかない場合は、原則として整形不備を疑い、再整形する。
+
+確認コマンド例（可能な場合）:
+
+```bash
+wc -l README.md docs/*.md manuals/*.md development_report.md
+wc -l src/*.html src/*.css src/*.js
+```
+
+- `wc` が使えない環境では、同等の確認（raw表示相当での目視確認）でよい。
 
 ## 17. 新規ツール開発時の標準的な流れ
 
@@ -219,6 +243,7 @@ src/style.css
 - 作成したファイル
 - 更新したファイル
 - 方針適合の確認結果
+- 整形確認結果
 - 判断しづらかった点
 - 未対応事項と対応予定
 - 今回あえて作成しなかったもの

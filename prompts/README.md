@@ -86,6 +86,7 @@ HTML / CSS / JavaScript の整形条件:
 
 - `src/index.html`、`src/script.js`、`src/style.css` は改行・インデントを適切に行う。
 - `src/script.js` や `src/style.css` を1行化しない。
+- 作業後に `wc -l` などで行数確認するか、同等のraw表示相当確認を行う。
 
 ## 7. 今後の拡張方針
 

@@ -115,6 +115,22 @@ src/style.css
 - その場合でも、標準構成と標準成果物名を維持する。
 - 判断材料が足りない場合は推測で省略せず、「判断しづらかった点」として報告する。
 
+## 整形状態の実確認（作業完了前に必須）
+
+- Markdown成果物と `src/index.html` / `src/script.js` / `src/style.css` は、作業完了前に実ファイルを開いて整形状態を確認する。
+- 「整形した」と自己申告するだけで終わらせず、実際の表示状態を確認してから報告する。
+- 可能であれば、`wc -l` 相当の確認を実施する。
+
+確認コマンド例（可能な場合）:
+
+```bash
+wc -l README.md docs/*.md manuals/*.md development_report.md
+wc -l src/*.html src/*.css src/*.js
+```
+
+- `wc` が使えない環境では、同等の確認（raw表示相当での目視確認）でよい。
+- 行数が極端に少ないMarkdownやコードファイル（目安: 3〜5行程度）は整形不備を疑い、再整形する。
+
 ## 進め方
 
 1. まず業務課題と対象利用者を確認する。
@@ -154,3 +170,9 @@ src/style.css
 - `src/index.html`、`src/script.js`、`src/style.css` は保守性のため改行・インデントする
 - `src/script.js` や `src/style.css` を1行化しない
 - 最後に「実装に進んでよいか（承認待ち）」を明記する
+
+## 作業報告に必ず含める項目
+
+- 整形確認結果（Markdown / HTML / CSS / JavaScript）
+- 実施した確認方法（`wc -l` または同等確認）
+- 整形再実施の有無と理由（該当時）
