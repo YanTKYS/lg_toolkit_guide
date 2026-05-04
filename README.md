@@ -136,3 +136,14 @@ Vibe-coding実行環境によっては、外部GitHubへのアクセスが制限
 
 - 通常時: `README.md` → `docs/` → `prompts/` → `examples/` の順で参照。
 - 参照不能時: `exports/guide_context.md` を起点にし、足りない情報だけ追加提示。
+
+
+## 14. GitHub Pagesでの参照
+
+本リポジトリは、GitHub Pagesを有効化すると次のURLで参照できます。
+
+- 想定URL: `https://yantkys.github.io/lg_toolkit_guide/`
+
+> 注意: 上記URLが実際に有効かどうかは、GitHub側でPages設定（公開元: `main` ブランチ / `/ (root)`）を有効化した後に確認が必要です。
+
+Pagesの入口は `index.md` です。
