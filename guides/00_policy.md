@@ -227,7 +227,7 @@ C#は、JavaScriptやPowerShellでは扱いにくい処理、または職員向�
 localgov-internal-toolkit/
   README.md
 
-  docs/
+  guides/
     00_policy.md
     01_ai_coding_rules.md
     02_tool_design_template.md
@@ -238,7 +238,7 @@ localgov-internal-toolkit/
     07_prompt_template.md
 
   examples/
-    design-docs/
+    design-guides/
     prompts/
     readmes/
 
@@ -248,7 +248,7 @@ localgov-internal-toolkit/
     csharp/
 ```
 
-### docs/
+### guides/
 
 開発方針、AIコーディングルール、設計書テンプレート、セキュリティ方針、UI/UX方針、リリース前チェックリスト、READMEテンプレート、プロンプトテンプレートを置く。
 
