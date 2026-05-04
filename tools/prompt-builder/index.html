@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プロンプトビルダー | lg_toolkit_guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>プロンプトビルダー</h1>
+    <p class="lead">新規内部ツール作成用プロンプトをフォーム入力から生成します。</p>
+
+    <section class="notice">
+      <h2>注意</h2>
+      <ul>
+        <li>入力内容はブラウザ内でのみ処理されます。</li>
+        <li>外部送信、保存、ログ出力は行いません。</li>
+        <li>個人情報、機微情報、非公開の内部情報は入力しないでください。</li>
+        <li>生成されたプロンプトは、利用者が確認してから使用してください。</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>入力</h2>
+      <div class="grid">
+        <label>ツール名
+          <input id="toolName" type="text" placeholder="例: ファイル名整形ツール">
+        </label>
+        <label>対象リポジトリ名
+          <input id="repoName" type="text" placeholder="例: lg_tool_fs_xx">
+        </label>
+        <label>目的
+          <textarea id="purpose" rows="3" placeholder="何を解決するツールか"></textarea>
+        </label>
+        <label>想定利用者
+          <input id="users" type="text" placeholder="例: 一般職員、運用担当部署">
+        </label>
+        <label>実装方式
+          <select id="implementationType">
+            <option>HTML / CSS / JavaScript の静的Webツール</option>
+            <option>PowerShellスクリプト</option>
+            <option>C# コンソールアプリ</option>
+            <option>C# WinFormsアプリ</option>
+            <option>未定</option>
+          </select>
+        </label>
+        <label>参照方式
+          <select id="referenceType">
+            <option>reference/guide_context.md 同梱方式</option>
+            <option>GitHub Pages / raw 参照方式</option>
+            <option>MCP Fetch利用</option>
+            <option>未定</option>
+          </select>
+        </label>
+        <label>作成フェーズ
+          <select id="phase">
+            <option>設計文書のみ作成</option>
+            <option>設計文書と実装を作成</option>
+            <option>既存ツールをレビュー</option>
+            <option>リリース前文書を整備</option>
+          </select>
+        </label>
+        <label>追加要件
+          <textarea id="extraRequirements" rows="4" placeholder="任意の追加条件"></textarea>
+        </label>
+      </div>
+
+      <div class="buttons">
+        <button id="generateBtn" type="button">プロンプト生成</button>
+        <button id="copyBtn" type="button">コピー</button>
+        <button id="clearBtn" type="button" class="sub">クリア</button>
+      </div>
+      <p id="status" class="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel">
+      <h2>出力</h2>
+      <textarea id="output" rows="24" placeholder="ここに生成結果が表示されます"></textarea>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
