@@ -122,6 +122,10 @@
 - `examples/` は、`guides` と `prompts` を使って実際にどう記入するかを示すサンプル文書集です。
 - 実装コードは含まず、設計書・README・チェックリスト・手順書の記入例のみを扱います。
 
+- `examples/01_filename_sanitizer`: 初期の記入例
+- `examples/02_filename_sanitizer_context_result`: `reference/guide_context.md` 単体参照で生成した実証成功例
+- 詳細: `examples/README.md`
+
 
 ## 13. Vibe-coding時の参照方法（GitHub URLを直接読めない場合）
 
