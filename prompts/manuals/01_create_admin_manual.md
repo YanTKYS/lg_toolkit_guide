@@ -4,7 +4,7 @@
 
 ## 前提（必須）
 
-- `docs/00_policy.md` と `docs/01_ai_coding_rules.md` を必ず前提にすること。
+- `guides/00_policy.md` と `guides/01_ai_coding_rules.md` を必ず前提にすること。
 - 閉域/庁内ネットワーク前提で記述すること。
 - 外部通信、外部API、外部CDN、クラウド依存を前提にしないこと。
 - 個人情報を保存・送信・ログ出力しない方針を明記すること。

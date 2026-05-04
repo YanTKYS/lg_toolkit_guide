@@ -4,7 +4,7 @@
 
 ## 前提（必須）
 
-- `docs/00_policy.md` と `docs/01_ai_coding_rules.md` を必ず前提にすること。
+- `guides/00_policy.md` と `guides/01_ai_coding_rules.md` を必ず前提にすること。
 - 閉域環境、個人情報保護、外部依存回避、元ファイル保護の観点で確認すること。
 
 ## レビュー観点（必須）
@@ -20,7 +20,7 @@
 9. 問い合わせ先や一次対応が明確か
 10. 障害時の対応が過度に利用者へ寄っていないか
 11. 管理者、運用担当部署、利用者の責任分界が矛盾していないか
-12. `docs/00_policy.md` と `docs/01_ai_coding_rules.md` に反していないか
+12. `guides/00_policy.md` と `guides/01_ai_coding_rules.md` に反していないか
 
 ## 入力情報（この下を埋めて使う）
 

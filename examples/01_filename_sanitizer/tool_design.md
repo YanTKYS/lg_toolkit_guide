@@ -91,4 +91,4 @@ Windowsで使用できない文字を含むファイル名を、安全な候補�
 
 ## 18. リリース前確認
 
-- `docs/05_release_checklist.md` と `docs/08_test_scenarios_template.md` を使用する。
+- `guides/05_release_checklist.md` と `guides/08_test_scenarios_template.md` を使用する。

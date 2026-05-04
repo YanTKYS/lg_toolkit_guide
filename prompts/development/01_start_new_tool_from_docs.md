@@ -7,16 +7,16 @@
 
 次の文書を必ず参照してから作業してください。
 
-- `docs/00_policy.md`
-- `docs/01_ai_coding_rules.md`
-- `docs/02_tool_design_template.md`
-- `docs/03_security_privacy_rules.md`
-- `docs/04_ui_ux_rules.md`
-- `docs/05_release_checklist.md`
-- `docs/06_readme_template.md`
-- `docs/07_prompt_template.md`
-- `docs/08_test_scenarios_template.md`
-- `docs/09_operation_handover_template.md`
+- `guides/00_policy.md`
+- `guides/01_ai_coding_rules.md`
+- `guides/02_tool_design_template.md`
+- `guides/03_security_privacy_rules.md`
+- `guides/04_ui_ux_rules.md`
+- `guides/05_release_checklist.md`
+- `guides/06_readme_template.md`
+- `guides/07_prompt_template.md`
+- `guides/08_test_scenarios_template.md`
+- `guides/09_operation_handover_template.md`
 - `examples/01_filename_sanitizer/`
 
 ## 最小依頼プロンプト
@@ -37,7 +37,7 @@ Vibe-coding実行環境で本リポジトリのGitHub URLを直接読めない�
 2. Pagesが読めない場合は raw を確認する（`https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md`）。  
 3. rawも読めない場合でMCP Fetchが使えるなら、MCP FetchでPagesまたはraw取得を試す。  
 4. MCP Fetchでも読めない場合は、`reference/guide_context.md` として同梱を依頼し、内容を必ず参照する。  
-5. そのうえで不足情報があれば、`docs/` や `prompts/` の必要部分のみ追加提示を依頼する。  
+5. そのうえで不足情報があれば、`guides/` や `prompts/` の必要部分のみ追加提示を依頼する。  
 6. ガイド未参照状態では、実装を開始しない（推測実装禁止）。
 
 ## 目的

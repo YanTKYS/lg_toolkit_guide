@@ -4,16 +4,16 @@
 
 ## 前提（必須参照）
 
-- `docs/00_policy.md`
-- `docs/01_ai_coding_rules.md`
-- `docs/05_release_checklist.md`
-- `docs/08_test_scenarios_template.md`
+- `guides/00_policy.md`
+- `guides/01_ai_coding_rules.md`
+- `guides/05_release_checklist.md`
+- `guides/08_test_scenarios_template.md`
 - `examples/01_filename_sanitizer/`
 
 ## レビュー観点（必須）
 
-- `docs/00_policy.md` に反していないか
-- `docs/01_ai_coding_rules.md` に反していないか
+- `guides/00_policy.md` に反していないか
+- `guides/01_ai_coding_rules.md` に反していないか
 - 外部CDN、外部API、クラウド依存がないか
 - 個人情報を保存・送信・ログ出力していないか
 - 元ファイルを破壊しないか

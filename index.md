@@ -8,22 +8,22 @@
 ## 1. このサイトの目的
 
 - 閉域自治体向け内部ツール開発ガイドを、Webから参照しやすくする。
-- docs / prompts / examples / exports への導線を1ページに集約する。
+- guides / prompts / examples / exports への導線を1ページに集約する。
 - URL参照不可時の代替手順を明確にする。
 
 ## 2. lg_toolkit_guide の概要
 
 `lg_toolkit_guide` は、閉域または庁内ネットワークで利用する小規模内部ツールを、Vibe-codingで安全・継続的に開発するためのドキュメント基盤です。
 
-- `docs/`: 方針・ルール・テンプレート・チェックリスト
+- `guides/`: 方針・ルール・テンプレート・チェックリスト
 - `prompts/`: AIへ投入する実行用プロンプト
 - `examples/`: 望ましい記入例
 - `exports/`: 参照制限環境向け最小ガイド
 
 ## 3. Vibe-coding時の参照方法
 
-1. まず `docs/00_policy.md` と `docs/01_ai_coding_rules.md` を読む。
-2. 次に目的に応じて `docs/` と `prompts/` を参照する。
+1. まず `guides/00_policy.md` と `guides/01_ai_coding_rules.md` を読む。
+2. 次に目的に応じて `guides/` と `prompts/` を参照する。
 3. 新規開発は `prompts/development/01_start_new_tool_from_docs.md` を起点にする。
 4. 配布前はチェックリストとテストシナリオを埋める。
 
@@ -32,22 +32,22 @@
 - 代替手段A: `exports/guide_context.md` をプロンプトへ貼り付ける。
 - 代替手段B: 対象リポジトリに `reference/guide_context.md` として同梱する。
 - 代替手段C: MCP Fetchが使える場合は、Pagesまたはraw URLの取得を試す。
-- 代替手段D: 必要な `docs/` / `prompts/` の抜粋だけ追加提示する。
+- 代替手段D: 必要な `guides/` / `prompts/` の抜粋だけ追加提示する。
 
 ## 5. exports/guide_context.md
 
 - 最小ガイド: [exports/guide_context.md](./exports/guide_context.md)
 - raw参照: https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md
 
-## 6. docs 配下の主要文書
+## 6. guides 配下の主要文書
 
-- [docs/00_policy.md](./docs/00_policy.md)
-- [docs/01_ai_coding_rules.md](./docs/01_ai_coding_rules.md)
-- [docs/02_tool_design_template.md](./docs/02_tool_design_template.md)
-- [docs/05_release_checklist.md](./docs/05_release_checklist.md)
-- [docs/06_readme_template.md](./docs/06_readme_template.md)
-- [docs/08_test_scenarios_template.md](./docs/08_test_scenarios_template.md)
-- [docs/09_operation_handover_template.md](./docs/09_operation_handover_template.md)
+- [guides/00_policy.md](./guides/00_policy.md)
+- [guides/01_ai_coding_rules.md](./guides/01_ai_coding_rules.md)
+- [guides/02_tool_design_template.md](./guides/02_tool_design_template.md)
+- [guides/05_release_checklist.md](./guides/05_release_checklist.md)
+- [guides/06_readme_template.md](./guides/06_readme_template.md)
+- [guides/08_test_scenarios_template.md](./guides/08_test_scenarios_template.md)
+- [guides/09_operation_handover_template.md](./guides/09_operation_handover_template.md)
 
 ## 7. prompts 配下の主要プロンプト
 
@@ -75,7 +75,7 @@
 
 1. `exports/guide_context.md` を `reference/guide_context.md` としてコピー。
 2. Vibe-coding開始時に `reference/guide_context.md` を参照させる。
-3. 必要に応じて `docs/` と `prompts/` の関連文書を追加提示。
+3. 必要に応じて `guides/` と `prompts/` の関連文書を追加提示。
 4. 実装前に設計・README・チェック・テスト・引継ぎ文書を先に作る。
 
 ## 10. 注意事項
@@ -89,7 +89,7 @@
 
 実行環境によっては、同じURLでも結果が異なる場合があります。
 
-- ケースA: 参照可能 → このページを起点に `docs/` / `prompts/` / `examples/` を参照
+- ケースA: 参照可能 → このページを起点に `guides/` / `prompts/` / `examples/` を参照
 - ケースB: 403 Forbidden → `exports/guide_context.md` を `reference/guide_context.md` として同梱
 - ケースC: リポジトリがスコープ外 → 同梱方式へ切替え、必要文書を個別提示
 

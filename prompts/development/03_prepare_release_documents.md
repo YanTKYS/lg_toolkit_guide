@@ -4,10 +4,10 @@
 
 ## 前提（必須参照）
 
-- `docs/05_release_checklist.md`
-- `docs/06_readme_template.md`
-- `docs/08_test_scenarios_template.md`
-- `docs/09_operation_handover_template.md`
+- `guides/05_release_checklist.md`
+- `guides/06_readme_template.md`
+- `guides/08_test_scenarios_template.md`
+- `guides/09_operation_handover_template.md`
 - `prompts/manuals/01_create_admin_manual.md`
 - `prompts/manuals/02_create_operator_manual.md`
 - `prompts/manuals/03_create_user_manual.md`
