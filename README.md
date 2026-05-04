@@ -112,6 +112,8 @@
 - `prompts/` は、`guides` を実務で使うための「AI投入用プロンプト集」です。
 - 手順書作成やレビューを行う際は、`prompts/README.md` と `prompts/manuals/` を使用してください。
 - `prompts/development/` には、新規開発開始・生成物レビュー・配布前文書整備のプロンプトを配置します。
+- GitHub Pages上の補助ページとして、プロンプトビルダー（`tools/prompt-builder/`）を利用できます。  
+  `https://yantkys.github.io/lg_toolkit_guide/tools/prompt-builder/`
 - 使う前に、必ず `guides/00_policy.md` と `guides/01_ai_coding_rules.md` を確認してください。
 
 
@@ -131,6 +133,14 @@ Vibe-coding実行環境によっては、外部GitHubへのアクセスが制限
 2. 可能であれば `exports/guide_context.md` を対象リポジトリの `reference/guide_context.md` としてコピーして同梱する。  
 3. さらに必要な場合は `guides/` と `prompts/` の必要箇所を抜粋して追加提示する。  
 4. ガイド本文が参照できない状態で推測実装は行わず、最小ガイド提示を優先する。
+
+補足:
+
+- `exports/guide_context.md` は、同梱方式でも使えるように標準成果物名と標準構成を含む。
+- 標準成果物には、ルート直下の `development_report.md` も含む。
+- 作成先ツールでは、作業後にMarkdownとコード（HTML/CSS/JS）の整形状態を実確認する。
+- `lg_toolkit_guide` 本体の中核ガイド文書は `guides/` に置く。
+- 実ツール側では、設計・チェック・引継ぎ文書置き場として `docs/` を使用してよい。
 
 推奨運用:
 
@@ -193,4 +203,3 @@ Pagesの入口は `index.md` です。
 2. 失敗時は `exports/guide_context.md` を対象リポジトリへ `reference/guide_context.md` として同梱する。  
 3. さらに不足する場合は、必要な `guides/` と `prompts/` の該当部分のみ追加提示する。  
 4. ガイド未参照状態では実装を開始しない。
-
