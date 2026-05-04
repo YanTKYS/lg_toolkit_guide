@@ -60,6 +60,7 @@
 実ツール作成時の標準成果物（原則）:
 
 - `README.md`
+- `development_report.md`（ルート直下・同一リポジトリ内で1つ）
 - `docs/tool_design.md`
 - `docs/release_checklist.md`
 - `docs/test_scenarios.md`
@@ -79,6 +80,12 @@ Markdown品質条件（作成先成果物にも適用）:
 - 表はMarkdown表として整形する。
 - チェックは `- [ ]` を使う。
 - 適用対象: `README.md`、`docs/*.md`、`manuals/*.md`、`reference/guide_context.md`、`development_report.md` などの報告書。
+- Markdown成果物は作成後にraw表示相当で自己点検し、1行または数行への圧縮がないことを確認する。
+
+HTML / CSS / JavaScript の整形条件:
+
+- `src/index.html`、`src/script.js`、`src/style.css` は改行・インデントを適切に行う。
+- `src/script.js` や `src/style.css` を1行化しない。
 
 ## 7. 今後の拡張方針
 

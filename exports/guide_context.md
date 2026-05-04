@@ -124,6 +124,7 @@ MCP Fetch（補助手段）:
 
 ```text
 README.md
+development_report.md
 
 docs/
   tool_design.md
@@ -157,6 +158,7 @@ reference/
 
 ```text
 README.md
+development_report.md
 docs/tool_design.md
 docs/release_checklist.md
 docs/test_scenarios.md
@@ -170,6 +172,8 @@ src/style.css
 ```
 
 - `docs/design.md`、`docs/checklist.md`、`docs/test.md` のような短縮名は原則使わない。
+- 開発報告書は原則として、ルート直下の `development_report.md` に作成する。
+- 同一リポジトリ内に複数の `development_report.md` を作成しない。
 
 ## 15. Markdown品質条件（作成先成果物にも適用）
 
@@ -177,6 +181,7 @@ src/style.css
 - 1つの文書全体を1行または数行に圧縮しない。
 - raw表示でも読みやすいMarkdownにする。
 - 表はMarkdown表で整形し、チェックは `- [ ]` を使う。
+- 作成後に、raw表示相当で読みやすいか自己点検する。
 - この品質条件は、`lg_toolkit_guide` 本体だけでなく作成先ツールの成果物にも適用する。
   - `README.md`
   - `docs/*.md`
@@ -184,26 +189,32 @@ src/style.css
   - `reference/guide_context.md`
   - `development_report.md` などの報告書
 
-## 16. 新規ツール開発時の標準的な流れ
+## 16. HTML / CSS / JavaScript の整形条件
+
+- `src/index.html`、`src/script.js`、`src/style.css` は、保守しやすいように適切な改行とインデントで記述する。
+- `src/script.js` や `src/style.css` を1行に圧縮しない。
+- 作成後に、raw表示相当で可読性を自己点検する。
+
+## 17. 新規ツール開発時の標準的な流れ
 
 1. `guides/00` と `guides/01` を前提化する。
 2. 設計書、README、チェックリスト、テスト、運用引継ぎ文書を先に作る。
 3. 関係者承認後に実装へ進む。
 4. 実装後はリリース前チェックとテスト結果を更新する。
 
-## 17. guide_context単体参照時の注意
+## 18. guide_context単体参照時の注意
 
 - `reference/guide_context.md` のみを参照する比較テストでは、外部URLや追加参照先を見に行かない。
 - 本書に記載の標準構成と標準成果物名を維持し、成果物を省略しない。
 - 特に `manuals/operator_manual.md` は省略しない。
 - 判断材料が不足している場合は、推測で省略せず「判断しづらかった点」として報告する。
 
-## 18. 重要（推測実装の禁止）
+## 19. 重要（推測実装の禁止）
 
 ガイド本文を読めない場合は、推測で実装を進めない。  
 必ず `guide_context.md` の提示または同梱を求めること。
 
-## 19. 作業後に報告すべきこと
+## 20. 作業後に報告すべきこと
 
 - 作成したファイル
 - 更新したファイル

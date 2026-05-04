@@ -61,6 +61,7 @@ Vibe-coding実行環境で本リポジトリのGitHub URLを直接読めない�
 
 ```text
 README.md
+development_report.md
 
 docs/
   tool_design.md
@@ -91,6 +92,7 @@ reference/
 
 ```text
 README.md
+development_report.md
 docs/tool_design.md
 docs/release_checklist.md
 docs/test_scenarios.md
@@ -105,6 +107,7 @@ src/style.css
 
 - `docs/design.md`、`docs/checklist.md`、`docs/test.md` などの短縮名は原則使わない。
 - `manuals/operator_manual.md` は省略しない（所管部署・運用担当部署・一次対応者向け）。
+- 開発報告書はルート直下の `development_report.md` に作成し、同一リポジトリ内に複数作成しない。
 
 ## guide_contextのみ参照する比較テスト時の追加ルール
 
@@ -147,4 +150,7 @@ src/style.css
 - 表はMarkdown表として整形する
 - チェックリストは `- [ ]` 形式で記載する
 - 上記Markdown品質条件を、作成先の `README.md`、`docs/*.md`、`manuals/*.md`、`reference/guide_context.md`、報告書にも適用する
+- Markdown成果物は作成後にraw表示相当で自己点検し、1行または数行への圧縮がないことを確認する
+- `src/index.html`、`src/script.js`、`src/style.css` は保守性のため改行・インデントする
+- `src/script.js` や `src/style.css` を1行化しない
 - 最後に「実装に進んでよいか（承認待ち）」を明記する

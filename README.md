@@ -135,6 +135,7 @@ Vibe-coding実行環境によっては、外部GitHubへのアクセスが制限
 補足:
 
 - `exports/guide_context.md` は、同梱方式でも使えるように標準成果物名と標準構成を含む。
+- 標準成果物には、ルート直下の `development_report.md` も含む。
 - `lg_toolkit_guide` 本体の中核ガイド文書は `guides/` に置く。
 - 実ツール側では、設計・チェック・引継ぎ文書置き場として `docs/` を使用してよい。
 
