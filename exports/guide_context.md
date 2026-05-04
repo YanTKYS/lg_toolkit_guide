@@ -36,6 +36,7 @@ MCP Fetch（補助手段）:
 1. Vibe-coding開始時に、このファイルをAIへ提示する。
 2. 次に、対象タスクに必要な詳細（設計、チェック、手順書）を追加で提示する。
 3. ガイド未参照状態では、実装を開始しない。
+4. このファイルのみで進める場合は、本書の「標準ディレクトリ構成」と「標準成果物ファイル名」を優先する。
 
 ## 3. 閉域自治体向け内部ツールの基本方針
 
@@ -75,6 +76,8 @@ MCP Fetch（補助手段）:
 - エラー時は原因と対処を短文で示す。
 - 成功時は完了と次操作を示す。
 - 専門用語を避ける。
+- 小規模Webツールでは、ツール名 / 概要 / 注意事項 / 入力 / 実行 / 結果 / 補助操作（コピー等） / エラー表示の標準構成を意識する。
+- コピー機能などの補助機能は、成功・失敗表示を用意する。
 
 ## 8. READMEに書くべき項目
 
@@ -94,6 +97,7 @@ MCP Fetch（補助手段）:
 - 個人情報・破壊的処理の安全策があるか。
 - README、チェックリスト、注意事項が揃っているか。
 - 試作版 / 検証版 / 本番相当版の区分を明記したか。
+- バージョン区分（例: `v0.x.x` / `v0.9.x` / `v1.0.0` / `v1.x.x` / `deprecated`）をREADMEまたは開発報告書に記載したか。
 
 ## 10. テストシナリオの要点
 
@@ -112,29 +116,137 @@ MCP Fetch（補助手段）:
 - 管理者向け手順書: 配置、更新、ロールバック、障害対応、権限管理を示す。
 - 運用担当部署向け手順書: 一次対応、業務判断、DX担当への相談境界を示す。
 - 利用者向け手順書: 日常操作、エラー時の基本対応、注意事項を短く示す。
+- 手順書は原則として次の3種類を分けて作成し、省略しない。
+  - `manuals/admin_manual.md`
+  - `manuals/operator_manual.md`（省略禁止）
+  - `manuals/user_manual.md`
 
-## 13. Markdown品質条件
+## 13. 作成先ツールリポジトリの標準ディレクトリ構成
+
+次を標準構成とする。
+
+```text
+README.md
+development_report.md
+
+docs/
+  tool_design.md
+  release_checklist.md
+  test_scenarios.md
+  operation_handover.md
+
+manuals/
+  admin_manual.md
+  operator_manual.md
+  user_manual.md
+
+src/
+  index.html
+  script.js
+  style.css
+
+reference/
+  guide_context.md
+```
+
+補足:
+
+- `lg_toolkit_guide` 本体では中核ガイド文書は `guides/` に置く。
+- 実ツール側では、設計・チェック・引継ぎ文書置き場として `docs/` を使用してよい。
+- `reference/guide_context.md` は同梱方式で実施する場合のみ必須。Pages/rawなど外部参照方式では必須ではない。
+
+## 14. 標準成果物ファイル名
+
+実ツール作成時は、原則として次のファイル名を使用する。
+
+```text
+README.md
+development_report.md
+docs/tool_design.md
+docs/release_checklist.md
+docs/test_scenarios.md
+docs/operation_handover.md
+manuals/admin_manual.md
+manuals/operator_manual.md
+manuals/user_manual.md
+src/index.html
+src/script.js
+src/style.css
+```
+
+- `docs/design.md`、`docs/checklist.md`、`docs/test.md` のような短縮名は原則使わない。
+- 開発報告書は原則として、ルート直下の `development_report.md` に作成する。
+- 同一リポジトリ内に複数の `development_report.md` を作成しない。
+
+## 15. Markdown品質条件（作成先成果物にも適用）
 
 - 見出し、本文、箇条書き、表、チェックボックスを適切に改行する。
-- 文書全体を1行に圧縮しない。
+- 1つの文書全体を1行または数行に圧縮しない。
+- raw表示でも読みやすいMarkdownにする。
 - 表はMarkdown表で整形し、チェックは `- [ ]` を使う。
+- 作成後に、raw表示相当で読みやすいか自己点検する。
+- この品質条件は、`lg_toolkit_guide` 本体だけでなく作成先ツールの成果物にも適用する。
+  - `README.md`
+  - `docs/*.md`
+  - `manuals/*.md`
+  - `reference/guide_context.md`
+  - `development_report.md` などの報告書
 
-## 14. 新規ツール開発時の標準的な流れ
+Markdown整形の実確認ルール:
+
+- 「raw表示でも読みやすい」と自己申告するだけでなく、実ファイルを開いて確認する。
+- 見出し、本文、箇条書き、表、チェックボックスが適切に改行されていることを確認する。
+- `README.md`、`docs/*.md`、`manuals/*.md`、`development_report.md` が数行だけに圧縮されていないことを確認する。
+- Markdown文書が3〜5行程度しかない場合は、原則として整形不備を疑い、再整形する。
+- 箇条書き、チェックリスト、表は1項目または1行ごとに改行する。
+
+## 16. HTML / CSS / JavaScript の整形条件
+
+- `src/index.html`、`src/script.js`、`src/style.css` は、保守しやすいように適切な改行とインデントで記述する。
+- `src/script.js` や `src/style.css` を1行に圧縮しない。
+- 作成後に、raw表示相当で可読性を自己点検する。
+
+コード整形の実確認ルール:
+
+- HTML / CSS / JavaScript も、作成後に実ファイルを開いて確認する。
+- `src/index.html`、`src/script.js`、`src/style.css` が1行または数行に圧縮されていないことを確認する。
+- 関数、条件分岐、イベント処理、CSSルールごとに適切に改行・インデントする。
+- JavaScript / CSS / HTML が3〜5行程度しかない場合は、原則として整形不備を疑い、再整形する。
+
+確認コマンド例（可能な場合）:
+
+```bash
+wc -l README.md docs/*.md manuals/*.md development_report.md
+wc -l src/*.html src/*.css src/*.js
+```
+
+- `wc` が使えない環境では、同等の確認（raw表示相当での目視確認）でよい。
+
+## 17. 新規ツール開発時の標準的な流れ
 
 1. `guides/00` と `guides/01` を前提化する。
 2. 設計書、README、チェックリスト、テスト、運用引継ぎ文書を先に作る。
 3. 関係者承認後に実装へ進む。
 4. 実装後はリリース前チェックとテスト結果を更新する。
 
-## 15. 重要（推測実装の禁止）
+## 18. guide_context単体参照時の注意
+
+- `reference/guide_context.md` のみを参照する比較テストでは、外部URLや追加参照先を見に行かない。
+- 本書に記載の標準構成と標準成果物名を維持し、成果物を省略しない。
+- 特に `manuals/operator_manual.md` は省略しない。
+- 判断材料が不足している場合は、推測で省略せず「判断しづらかった点」として報告する。
+
+## 19. 重要（推測実装の禁止）
 
 ガイド本文を読めない場合は、推測で実装を進めない。  
 必ず `guide_context.md` の提示または同梱を求めること。
 
-## 16. 作業後に報告すべきこと
+## 20. 作業後に報告すべきこと
 
 - 作成したファイル
 - 更新したファイル
 - 方針適合の確認結果
+- 整形確認結果
+- 判断しづらかった点
 - 未対応事項と対応予定
 - 今回あえて作成しなかったもの
