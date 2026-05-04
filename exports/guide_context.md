@@ -6,6 +6,15 @@
 
 - `reference/guide_context.md`
 
+raw URL（直接参照）:
+
+- `https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md`
+
+補足:
+
+- GitHub Pagesが読めない場合の代替参照経路として、raw URL を利用できる環境があります。
+- Pagesとrawの両方が読めない場合は、同梱方式を採用してください。
+
 ---
 
 ## 1. lg_toolkit_guide の目的

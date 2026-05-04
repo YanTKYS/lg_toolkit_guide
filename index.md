@@ -36,6 +36,7 @@
 ## 5. exports/guide_context.md
 
 - 最小ガイド: [exports/guide_context.md](./exports/guide_context.md)
+- raw参照: https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md
 
 ## 6. docs 配下の主要文書
 

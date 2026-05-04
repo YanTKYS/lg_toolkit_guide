@@ -101,3 +101,14 @@ Vibe-coding実行環境で外部GitHubへ接続できない場合は、次を実
 - URL参照が `403` の場合: `exports/guide_context.md` を提示または同梱して進める。
 - リポジトリがスコープ外の場合: 同梱方式を標準とし、必要文書を個別提示する。
 - いずれの場合も、ガイド未参照で実装開始しない。
+
+
+## 12. GitHub Pages / raw / 同梱 の使い分け
+
+| 参照方式 | URL/配置 | 向いている状況 | 注意点 |
+|---|---|---|---|
+| GitHub Pages | `https://yantkys.github.io/lg_toolkit_guide/` | Webページとして導線付きで参照したい | 環境によって403になる場合がある |
+| raw参照 | `https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md` | 最小ガイド本文を直接取得したい | セッションによってrawが遮断される場合がある |
+| 同梱参照 | `reference/guide_context.md` | 参照制限がある環境で最も確実に使いたい | コピー元との差分管理が必要 |
+
+推奨: Pages → raw → 同梱の順で確認し、最終的には同梱方式を標準運用にする。

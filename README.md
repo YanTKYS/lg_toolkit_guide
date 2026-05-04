@@ -137,6 +137,38 @@ Vibe-coding実行環境によっては、外部GitHubへのアクセスが制限
 - 通常時: `README.md` → `docs/` → `prompts/` → `examples/` の順で参照。
 - 参照不能時: `exports/guide_context.md` を起点にし、足りない情報だけ追加提示。
 
+### 13.1 推奨参照順（Vibe-coding時）
+
+次の順で参照可否を確認してください。
+
+1. GitHub Pages  
+   `https://yantkys.github.io/lg_toolkit_guide/`
+2. raw.githubusercontent.com  
+   `https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md`
+3. 対象リポジトリ内に同梱した `reference/guide_context.md`
+4. GitHubリポジトリURL  
+   `https://github.com/YanTKYS/lg_toolkit_guide`
+
+> 実務上もっとも確実なのは、対象リポジトリへ `reference/guide_context.md` を同梱する方式です。
+
+### 13.2 参照確認プロンプト例
+
+```text
+まず、以下の順で開発ガイドを参照できるか確認してください。
+
+1. GitHub Pages
+https://yantkys.github.io/lg_toolkit_guide/
+
+2. raw.githubusercontent.com
+https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md
+
+どちらかを参照できた場合は、guide_context の内容を要約してください。
+
+どちらも参照できない場合は、実装を開始せず、参照できない理由を報告してください。
+その場合は、対象リポジトリ内の reference/guide_context.md として同梱する方式に切り替えます。
+```
+
+
 
 ## 14. GitHub Pagesでの参照
 
