@@ -147,3 +147,14 @@ Vibe-coding実行環境によっては、外部GitHubへのアクセスが制限
 > 注意: 上記URLが実際に有効かどうかは、GitHub側でPages設定（公開元: `main` ブランチ / `/ (root)`）を有効化した後に確認が必要です。
 
 Pagesの入口は `index.md` です。
+
+### 14.1 参照可否は実行環境ごとに異なる
+
+同じURLでも、Vibe-coding実行環境により結果が異なる場合があります（閲覧可 / 403 / スコープ外）。  
+そのため、次の優先順で運用してください。
+
+1. GitHub Pages URL を試す。  
+2. 失敗時は `exports/guide_context.md` を対象リポジトリへ `reference/guide_context.md` として同梱する。  
+3. さらに不足する場合は、必要な `docs/` と `prompts/` の該当部分のみ追加提示する。  
+4. ガイド未参照状態では実装を開始しない。
+
