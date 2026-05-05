@@ -30,12 +30,22 @@
     features: id("features")
   };
 
-  featureList.forEach(function (value) {
+  featureList.forEach(function (value, index) {
     const label = document.createElement("label");
     const checkbox = document.createElement("input");
+    const text = document.createElement("span");
+    const checkboxId = "feature_" + index;
+
+    label.className = "check-item";
+    label.htmlFor = checkboxId;
+
     checkbox.type = "checkbox";
     checkbox.value = value;
-    label.append(checkbox, document.createTextNode(" " + value));
+    checkbox.id = checkboxId;
+
+    text.textContent = value;
+
+    label.append(checkbox, text);
     fields.features.appendChild(label);
   });
 
