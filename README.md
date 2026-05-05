@@ -190,13 +190,11 @@ MCP Fetchが利用可能な場合は、上記いずれかのURLをfetchツール
 
 ## 14. GitHub Pagesでの参照
 
-本リポジトリは、GitHub Pagesを有効化すると次のURLで参照できます。
+本リポジトリは、GitHub Pagesで次のURLから参照できます。
 
-- 想定URL: `https://yantkys.github.io/lg_toolkit_guide/`
+- 公開URL: `https://yantkys.github.io/lg_toolkit_guide/`
 
-> 注意: 上記URLが実際に有効かどうかは、GitHub側でPages設定（公開元: `main` ブランチ / `/ (root)`）を有効化した後に確認が必要です。
-
-Pagesの入口は `index.md` です。
+Pagesの入口文書は `index.md` です。
 
 ### 14.1 参照可否は実行環境ごとに異なる
 
