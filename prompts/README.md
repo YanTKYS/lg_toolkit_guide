@@ -57,6 +57,48 @@
 - できること/できないこと、責任分界、問い合わせ先を明記する。
 - 管理者向け・運用向け・利用者向けの読者を混在させない。
 
+実ツール作成時の標準成果物（原則）:
+
+- `README.md`
+- `development_report.md`（ルート直下・同一リポジトリ内で1つ）
+- `docs/tool_design.md`
+- `docs/release_checklist.md`
+- `docs/test_scenarios.md`
+- `docs/operation_handover.md`
+- `manuals/admin_manual.md`
+- `manuals/operator_manual.md`（省略しない）
+- `manuals/user_manual.md`
+- `src/` 配下の実装ファイル（実装方式に応じて構成）
+
+実装方式別の `src/` 構成例:
+
+- 静的Webツール: `src/index.html` / `src/script.js` / `src/style.css`
+- PowerShellツール: `src/main.ps1`
+- C# WinFormsツール: `src/<ProjectName>/<ProjectName>.csproj` / `Program.cs` / `MainForm.cs` / 必要に応じて追加クラス
+
+Markdown品質条件（作成先成果物にも適用）:
+
+- 見出し、本文、箇条書き、表、チェックボックスを適切に改行する。
+- 文書全体を1行または数行に圧縮しない。
+- raw表示でも読みやすいMarkdownにする。
+- 表はMarkdown表として整形する。
+- チェックは `- [ ]` を使う。
+- 適用対象: `README.md`、`docs/*.md`、`manuals/*.md`、`reference/guide_context.md`、`development_report.md` などの報告書。
+- Markdown成果物は作成後にraw表示相当で自己点検し、1行または数行への圧縮がないことを確認する。
+
+HTML / CSS / JavaScript の整形条件:
+
+- `src/index.html`、`src/script.js`、`src/style.css` は改行・インデントを適切に行う。
+- `src/script.js` や `src/style.css` を1行化しない。
+- 作業後に `wc -l` などで行数確認するか、同等のraw表示相当確認を行う。
+
+C# / WinForms / Office Interopの追加条件:
+
+- `.cs` を1行化しない。
+- `.csproj` を通常のXML構造で作成する。
+- 可能であれば `dotnet build` 相当で確認し、未確認時は理由を報告する。
+- Office Interop利用時は、Office依存・プロセス残存対策・上書き確認・ログ保存禁止をREADME/手順書へ記載する。
+
 ## 7. 今後の拡張方針
 
 - 業務カテゴリ別（CSV処理、帳票補助、文書整形など）の手順書作成プロンプト追加
