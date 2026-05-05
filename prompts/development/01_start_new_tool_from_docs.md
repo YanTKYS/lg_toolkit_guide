@@ -219,3 +219,11 @@ wc -l src/*.html src/*.css src/*.js
 - 整形確認結果（Markdown / HTML / CSS / JavaScript）
 - 実施した確認方法（`wc -l` または同等確認）
 - 整形再実施の有無と理由（該当時）
+- Office Interop利用時の実機確認済み項目
+- Office Interop利用時の実機未確認項目
+- 未確認理由
+- 次に確認すべき事項
+- 32bit / 64bit差異確認の有無
+- `development_report.md` の作成・更新ファイル一覧が実際の変更内容と一致しているか
+- git差分または同等の方法で確認したか
+- 実機未確認項目がある場合、未確認理由・次アクション・確認担当・再確認期限を記録したか
