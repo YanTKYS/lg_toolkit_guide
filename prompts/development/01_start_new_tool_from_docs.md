@@ -133,6 +133,9 @@ Office Interopを使う場合の追記先:
 - README（Office依存、上書き確認、ログ保存禁止）
 - `manuals/admin_manual.md`（Office前提環境、障害時対応）
 - `docs/operation_handover.md`（プロセス残存時の一次確認、相談先）
+- C# / WinForms / Office Interop系ツールでは、Web標準構成ではなく非Web向け標準構成を使う。
+- Office Interopを利用する場合は、`guides/12_office_interop_checklist.md` の観点を設計・テスト・手順書へ反映する。
+- guide_context同梱方式の場合でも、Office Interop系ツールの実機確認項目を省略しない。
 
 ## guide_contextのみ参照する比較テスト時の追加ルール
 

@@ -66,6 +66,8 @@
 - `guides/03_security_privacy_rules.md`（個人情報・ファイル安全）
 - `guides/04_ui_ux_rules.md`（職員向けUI/UX）
 - `guides/07_prompt_template.md`（AI依頼文テンプレート）
+- `guides/11_non_web_tool_patterns.md`（非Webツール標準構成）
+- `guides/12_office_interop_checklist.md`（Office Interop向け実機確認チェック）
 
 ### 6.3 配布前に使うもの
 
