@@ -51,6 +51,8 @@
 
 ## 7. prompts 配下の主要プロンプト
 
+- [プロンプトビルダー](./tools/prompt-builder/) - 新規内部ツール作成用プロンプトをフォーム入力から生成するページ
+
 - [prompts/README.md](./prompts/README.md)
 - [prompts/development/01_start_new_tool_from_docs.md](./prompts/development/01_start_new_tool_from_docs.md)
 - [prompts/development/02_review_generated_tool.md](./prompts/development/02_review_generated_tool.md)

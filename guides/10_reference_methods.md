@@ -45,6 +45,16 @@ Vibe-coding環境によって、GitHubリポジトリURL、GitHub Pages、raw.gi
 reference/guide_context.md
 ```
 
+同梱方式の運用注意:
+
+- 同梱方式では、`reference/guide_context.md` のみで開発判断する場合がある。
+- その場合、成果物の省略を避ける。
+- 標準構成と標準成果物名を維持する。
+  - 標準構成例: `README.md` / `docs/` / `manuals/` / `src/` / （必要時）`reference/`
+  - 標準成果物名: `docs/tool_design.md`、`docs/release_checklist.md`、`docs/test_scenarios.md`、`docs/operation_handover.md`、`manuals/admin_manual.md`、`manuals/operator_manual.md`、`manuals/user_manual.md`
+- 外部参照を禁止する比較テストでは、本文中の外部URLを追加参照しない。
+- 参照できない詳細情報は、推測で補完せず「判断しづらかった点」として報告する。
+
 ## 6. MCP Fetch方式
 
 - MCP対応ツールでFetch MCP Serverを使い、GitHub Pagesまたはraw URLを取得する方式
