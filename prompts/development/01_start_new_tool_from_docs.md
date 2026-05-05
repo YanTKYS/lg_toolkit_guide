@@ -143,6 +143,21 @@ Office Interopを使う場合の追記先:
 - その場合でも、標準構成と標準成果物名を維持する。
 - 判断材料が足りない場合は推測で省略せず、「判断しづらかった点」として報告する。
 
+追加ガイド同梱方式（必要時）:
+
+```text
+このリポジトリ内の以下の文書を開発ガイドとして参照してください。
+
+- reference/guide_context.md
+- reference/11_non_web_tool_patterns.md
+- reference/12_office_interop_checklist.md
+
+同梱されている文書のみを参照してください。
+外部URLは参照しないでください。
+
+必要な追加ガイドが同梱されていないと判断した場合は、推測で進めず、追加同梱を依頼してください。
+```
+
 ## 整形状態の実確認（作業完了前に必須）
 
 - Markdown成果物と `src/index.html` / `src/script.js` / `src/style.css` は、作業完了前に実ファイルを開いて整形状態を確認する。

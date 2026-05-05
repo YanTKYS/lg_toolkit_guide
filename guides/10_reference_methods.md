@@ -55,6 +55,34 @@ reference/guide_context.md
 - 外部参照を禁止する比較テストでは、本文中の外部URLを追加参照しない。
 - 参照できない詳細情報は、推測で補完せず「判断しづらかった点」として報告する。
 
+### 5.1 追加ガイド同梱方式
+
+通常は `reference/guide_context.md` を同梱する。  
+ただし、実行環境差異が大きいツールや、特定の技術要件を含むツールでは、関連する追加ガイドも同梱する。
+
+例:
+
+```text
+reference/
+  guide_context.md
+  11_non_web_tool_patterns.md
+  12_office_interop_checklist.md
+```
+
+使い分けの目安:
+
+| ツール種別・要件 | 推奨同梱文書 |
+|---|---|
+| すべてのツール | `guide_context.md` |
+| PowerShell / C# / 非Web系 | `11_non_web_tool_patterns.md` |
+| C# WinForms / WPF | `11_non_web_tool_patterns.md` |
+| Word / Excel / Outlook 操作あり | `12_office_interop_checklist.md` |
+| Office変換系 | `12_office_interop_checklist.md` |
+
+- 追加ガイドが必要か判断に迷う場合は、作業開始前に候補を提示する。
+- 同梱されていない追加ガイドの内容を推測で補いすぎない。
+- 判断しづらい点は作業報告に記録する。
+
 ## 6. MCP Fetch方式
 
 - MCP対応ツールでFetch MCP Serverを使い、GitHub Pagesまたはraw URLを取得する方式
