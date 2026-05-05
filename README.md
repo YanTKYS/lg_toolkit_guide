@@ -122,7 +122,7 @@
 - `prompts/` は、`guides` を実務で使うための「AI投入用プロンプト集」です。
 - 手順書作成やレビューを行う際は、`prompts/README.md` と `prompts/manuals/` を使用してください。
 - `prompts/development/` には、新規開発開始・生成物レビュー・配布前文書整備のプロンプトを配置します。
-- GitHub Pages上の補助ページとして、プロンプトビルダー（[tools/prompt-builder](https://yantkys.github.io/lg_toolkit_guide/tools/prompt-builder/)）を利用できます。  
+- GitHub Pages上の補助ページとして、プロンプトビルダー（`tools/prompt-builder/`）を利用できます。  
   `https://yantkys.github.io/lg_toolkit_guide/tools/prompt-builder/`
 - 使う前に、必ず `guides/00_policy.md` と `guides/01_ai_coding_rules.md` を確認してください。
 

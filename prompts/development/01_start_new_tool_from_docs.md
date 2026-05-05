@@ -75,9 +75,7 @@ manuals/
   user_manual.md
 
 src/
-  index.html
-  script.js
-  style.css
+  （実装方式に応じたファイルを配置）
 
 reference/
   guide_context.md
@@ -100,14 +98,41 @@ docs/operation_handover.md
 manuals/admin_manual.md
 manuals/operator_manual.md
 manuals/user_manual.md
-src/index.html
-src/script.js
-src/style.css
+src/（実装方式に応じた実装ファイル）
 ```
 
 - `docs/design.md`、`docs/checklist.md`、`docs/test.md` などの短縮名は原則使わない。
 - `manuals/operator_manual.md` は省略しない（所管部署・運用担当部署・一次対応者向け）。
 - 開発報告書はルート直下の `development_report.md` に作成し、同一リポジトリ内に複数作成しない。
+- 実装ファイルは実装方式に応じて `src/` 配下に配置する。
+
+実装方式別の `src/` 構成例:
+
+```text
+静的Webツール:
+  src/
+    index.html
+    script.js
+    style.css
+
+PowerShellツール:
+  src/
+    main.ps1
+
+C# WinFormsツール:
+  src/
+    <ProjectName>/
+      <ProjectName>.csproj
+      Program.cs
+      MainForm.cs
+      必要に応じてその他クラス
+```
+
+Office Interopを使う場合の追記先:
+
+- README（Office依存、上書き確認、ログ保存禁止）
+- `manuals/admin_manual.md`（Office前提環境、障害時対応）
+- `docs/operation_handover.md`（プロセス残存時の一次確認、相談先）
 
 ## guide_contextのみ参照する比較テスト時の追加ルール
 

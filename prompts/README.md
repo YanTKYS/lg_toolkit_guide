@@ -68,9 +68,13 @@
 - `manuals/admin_manual.md`
 - `manuals/operator_manual.md`（省略しない）
 - `manuals/user_manual.md`
-- `src/index.html`
-- `src/script.js`
-- `src/style.css`
+- `src/` 配下の実装ファイル（実装方式に応じて構成）
+
+実装方式別の `src/` 構成例:
+
+- 静的Webツール: `src/index.html` / `src/script.js` / `src/style.css`
+- PowerShellツール: `src/main.ps1`
+- C# WinFormsツール: `src/<ProjectName>/<ProjectName>.csproj` / `Program.cs` / `MainForm.cs` / 必要に応じて追加クラス
 
 Markdown品質条件（作成先成果物にも適用）:
 
@@ -87,6 +91,13 @@ HTML / CSS / JavaScript の整形条件:
 - `src/index.html`、`src/script.js`、`src/style.css` は改行・インデントを適切に行う。
 - `src/script.js` や `src/style.css` を1行化しない。
 - 作業後に `wc -l` などで行数確認するか、同等のraw表示相当確認を行う。
+
+C# / WinForms / Office Interopの追加条件:
+
+- `.cs` を1行化しない。
+- `.csproj` を通常のXML構造で作成する。
+- 可能であれば `dotnet build` 相当で確認し、未確認時は理由を報告する。
+- Office Interop利用時は、Office依存・プロセス残存対策・上書き確認・ログ保存禁止をREADME/手順書へ記載する。
 
 ## 7. 今後の拡張方針
 
