@@ -72,6 +72,24 @@ fieldset {
   padding: 10px;
 }
 
+
+.checks .check-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.checks .check-item span {
+  display: inline-block;
+}
+
+.checks .check-item input[type="checkbox"] {
+  margin: 0;
+}
+
 .buttons {
   display: flex;
   gap: 8px;
