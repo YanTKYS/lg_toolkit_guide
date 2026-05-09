@@ -13,7 +13,7 @@
 
 個別の内部ツール本体は、さらに別の個別ツールリポジトリで管理します。
 
-このリポジトリに置く実装は、[プロンプトビルダー](./tools/prompt-builder/) など、本ガイドを利用するための補助ツールに限定します。
+このリポジトリに置く実装は、[プロンプトビルダー](https://yantkys.github.io/lg_toolkit_guide/tools/prompt-builder/) など、本ガイドを利用するための補助ツールに限定します。
 
 ## 1. このリポジトリでできること（最初に読む）
 
@@ -126,6 +126,8 @@
 - `prompts/development/` には、新規開発開始・生成物レビュー・配布前文書整備のプロンプトを配置します。
 - GitHub Pages上の補助ページとして、プロンプトビルダー（`tools/prompt-builder/`）を利用できます。  
   `https://yantkys.github.io/lg_toolkit_guide/tools/prompt-builder/`
+- GitHub Pages上の補助ページとして、Markdownプロンプト → HTML/XML風プロンプト変換ツール（`tools/prompt-html-converter/`）を利用できます。
+  `https://yantkys.github.io/lg_toolkit_guide/tools/prompt-html-converter/`
 - 追加ガイド同梱方式の候補提示については、`tools/prompt-builder/README.md` の設計メモを参照してください。
 - 使う前に、必ず `guides/00_policy.md` と `guides/01_ai_coding_rules.md` を確認してください。
 
