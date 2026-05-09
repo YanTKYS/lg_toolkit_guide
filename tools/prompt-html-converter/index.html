@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdownプロンプト → HTML/XML風プロンプト変換ツール | lg_toolkit_guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="container">
+  <header class="hero">
+    <p class="eyebrow">lg_toolkit_guide 補助ツール</p>
+    <h1>Markdownプロンプト → HTML/XML風プロンプト変換ツール</h1>
+    <p class="lead">
+      Markdown形式のプロンプトを、生成AI APIを使わずにブラウザ内でHTML/XML風の構造化プロンプトへ変換します。
+    </p>
+  </header>
+
+  <section class="card caution" aria-labelledby="caution-title">
+    <h2 id="caution-title">注意事項</h2>
+    <ul>
+      <li>このツールは、MarkdownプロンプトをHTML/XML風の構造に機械的に変換する補助ツールです。</li>
+      <li>変換後のプロンプトが必ず高性能になることを保証するものではありません。</li>
+      <li>生成結果は利用者が確認し、必要に応じて修正してください。</li>
+      <li>個人情報、機微情報、非公開の内部情報は入力しないでください。</li>
+      <li>入力内容はブラウザ内でのみ処理され、保存・外部送信されません。</li>
+    </ul>
+  </section>
+
+  <section class="card" aria-labelledby="converter-title">
+    <h2 id="converter-title">変換</h2>
+
+    <div class="toolbar" aria-label="変換方式と操作">
+      <label class="select-label" for="mode">変換方式</label>
+      <select id="mode">
+        <option value="section">汎用section形式</option>
+        <option value="dedicated">専用タグ形式</option>
+      </select>
+      <button id="convertBtn" type="button">変換</button>
+      <button id="sampleBtn" type="button" class="secondary">サンプル挿入</button>
+      <button id="copyBtn" type="button" class="secondary">コピー</button>
+      <button id="clearBtn" type="button" class="subtle">クリア</button>
+    </div>
+
+    <div class="panes">
+      <label class="pane">
+        <span>Markdownプロンプト入力</span>
+        <textarea id="input" rows="24" placeholder="# 目的&#10;内部業務支援ツールの開発依頼を整理する"></textarea>
+      </label>
+
+      <label class="pane">
+        <span>HTML/XML風プロンプト出力</span>
+        <textarea id="output" rows="24" readonly></textarea>
+      </label>
+    </div>
+
+    <p id="status" class="status" aria-live="polite"></p>
+  </section>
+
+  <section class="card" aria-labelledby="rules-title">
+    <h2 id="rules-title">主な変換ルール</h2>
+    <ul>
+      <li><code>#</code>、<code>##</code>、<code>###</code> の見出しをセクションとして扱います。</li>
+      <li>箇条書き <code>-</code> は <code>&lt;item&gt;</code> に変換します。</li>
+      <li>番号付きリストは <code>&lt;step&gt;</code> に変換します。</li>
+      <li>コードブロックは <code>&lt;code_block&gt;</code> に変換します。</li>
+      <li>通常文は <code>&lt;p&gt;</code> に変換します。</li>
+    </ul>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
