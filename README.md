@@ -13,7 +13,7 @@
 
 個別の内部ツール本体は、さらに別の個別ツールリポジトリで管理します。
 
-このリポジトリに置く実装は、[プロンプトビルダー](./tools/prompt-builder/) など、本ガイドを利用するための補助ツールに限定します。
+このリポジトリに置く実装は、[プロンプトビルダー](https://yantkys.github.io/lg_toolkit_guide/tools/prompt-builder/) や [Markdownプロンプト → HTML/XML風プロンプト変換ツール](https://yantkys.github.io/lg_toolkit_guide/tools/prompt-html-converter/) など、本ガイドを利用するための補助ツールに限定します。
 
 ## 1. このリポジトリでできること（最初に読む）
 
@@ -124,8 +124,11 @@
 - `prompts/` は、`guides` を実務で使うための「AI投入用プロンプト集」です。
 - 手順書作成やレビューを行う際は、`prompts/README.md` と `prompts/manuals/` を使用してください。
 - `prompts/development/` には、新規開発開始・生成物レビュー・配布前文書整備のプロンプトを配置します。
+- `prompts/review/` には、実装AIの提案や方針逸脱を第三者レビューするためのプロンプトを配置します。
 - GitHub Pages上の補助ページとして、プロンプトビルダー（`tools/prompt-builder/`）を利用できます。  
   `https://yantkys.github.io/lg_toolkit_guide/tools/prompt-builder/`
+- GitHub Pages上の補助ページとして、Markdownプロンプト → HTML/XML風プロンプト変換ツール（`tools/prompt-html-converter/`）を利用できます。
+  `https://yantkys.github.io/lg_toolkit_guide/tools/prompt-html-converter/`
 - 追加ガイド同梱方式の候補提示については、`tools/prompt-builder/README.md` の設計メモを参照してください。
 - 使う前に、必ず `guides/00_policy.md` と `guides/01_ai_coding_rules.md` を確認してください。
 
@@ -157,6 +160,7 @@ Vibe-coding実行環境によっては、外部GitHubへのアクセスが制限
 - 標準成果物には、ルート直下の `development_report.md` も含む。
 - 作成先ツールでは、作業後にMarkdownとコード（HTML/CSS/JS）の整形状態を実確認する。
 - `lg_toolkit_guide` 本体の中核ガイド文書は `guides/` に置く。
+- 実装AIの方針逸脱や反論の審査には `guides/13_policy_deviation_review.md` と `prompts/review/` を使用する。
 - 実ツール側では、設計・チェック・引継ぎ文書置き場として `docs/` を使用してよい。
 
 推奨運用:

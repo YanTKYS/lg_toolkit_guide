@@ -130,13 +130,24 @@
 - [ ] JavaScript / CSS / HTML が1行または数行に圧縮されていない。
 - [ ] 後任者が読める程度の構造になっている。
 - [ ] `development_report.md` がルート直下に1つだけ存在する。
+- [ ] `development_report.md` が存在する。
+- [ ] `development_report.md` の「作成したファイル」が実際の追加ファイルと一致している。
+- [ ] `development_report.md` の「更新したファイル」が実際の変更ファイルと一致している。
+- [ ] 実際には変更していないファイルを「更新したファイル」に含めていない。
+- [ ] git差分、コミット差分、または作業ログと `development_report.md` の内容を照合した。
+- [ ] ビルド未確認・実機未確認などの未確認事項が明記されている。
 
 確認コマンド例（可能な場合）:
 
 ```bash
 wc -l README.md docs/*.md manuals/*.md development_report.md
 wc -l src/*.html src/*.css src/*.js
+git status --short
+git diff --name-only
+git diff --cached --name-only
 ```
+
+- `git` が利用できない環境では、同等の確認方法（作業ログ、差分一覧の目視確認など）でよい。
 
 ## 13. 未対応事項の記録欄
 

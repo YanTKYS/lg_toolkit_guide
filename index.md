@@ -48,15 +48,20 @@
 - [guides/06_readme_template.md](./guides/06_readme_template.md)
 - [guides/08_test_scenarios_template.md](./guides/08_test_scenarios_template.md)
 - [guides/09_operation_handover_template.md](./guides/09_operation_handover_template.md)
+- [guides/13_policy_deviation_review.md](./guides/13_policy_deviation_review.md)
 
 ## 7. prompts 配下の主要プロンプト
 
 - [プロンプトビルダー](./tools/prompt-builder/) - 新規内部ツール作成用プロンプトをフォーム入力から生成するページ
+- [Markdownプロンプト → HTML/XML風プロンプト変換ツール](./tools/prompt-html-converter/) - Markdown形式プロンプトをHTML/XML風の構造化プロンプトへ変換するページ
 
 - [prompts/README.md](./prompts/README.md)
 - [prompts/development/01_start_new_tool_from_docs.md](./prompts/development/01_start_new_tool_from_docs.md)
 - [prompts/development/02_review_generated_tool.md](./prompts/development/02_review_generated_tool.md)
 - [prompts/development/03_prepare_release_documents.md](./prompts/development/03_prepare_release_documents.md)
+- [prompts/review/01_third_party_review.md](./prompts/review/01_third_party_review.md)
+- [prompts/review/02_policy_deviation_request.md](./prompts/review/02_policy_deviation_request.md)
+- [prompts/review/03_create_decision_log.md](./prompts/review/03_create_decision_log.md)
 - [prompts/manuals/01_create_admin_manual.md](./prompts/manuals/01_create_admin_manual.md)
 - [prompts/manuals/02_create_operator_manual.md](./prompts/manuals/02_create_operator_manual.md)
 - [prompts/manuals/03_create_user_manual.md](./prompts/manuals/03_create_user_manual.md)
