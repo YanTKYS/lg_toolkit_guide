@@ -13,7 +13,7 @@
 
 個別の内部ツール本体は、さらに別の個別ツールリポジトリで管理します。
 
-このリポジトリに置く実装は、[プロンプトビルダー](https://yantkys.github.io/lg_toolkit_guide/tools/prompt-builder/) や [Markdownプロンプト → HTML/XML風プロンプト変換ツール](https://yantkys.github.io/lg_toolkit_guide/tools/prompt-html-converter/) など、本ガイドを利用するための補助ツールに限定します。
+このリポジトリに置く実装は、[プロンプトビルダー](https://yantkys.github.io/lg_toolkit_guide/tools/prompt-builder/)（新規ツール作成、第三者AIレビュー、変更申請作成、判断ログ作成に対応）や [Markdownプロンプト → HTML/XML風プロンプト変換ツール](https://yantkys.github.io/lg_toolkit_guide/tools/prompt-html-converter/) など、本ガイドを利用するための補助ツールに限定します。
 
 ## 1. このリポジトリでできること（最初に読む）
 
@@ -21,6 +21,7 @@
 - 個人情報保護・外部依存回避・元ファイル保護の観点を標準化できる
 - ツール設計〜実装依頼〜テスト〜配布判定〜運用引継ぎまでをテンプレート化できる
 - 担当者が変わっても、同じ基準で開発・運用しやすくなる
+- 判断に迷ったときの第三者AIレビュー、変更申請、判断ログ作成を補助できる
 
 ## 2. 対象とするツール
 
