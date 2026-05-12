@@ -23,37 +23,92 @@
 
   <section class="card">
     <h2>入力</h2>
-    <div class="grid">
-      <label>ツール名<input id="toolName" type="text"></label>
-      <label>対象リポジトリ名<input id="repoName" type="text"></label>
-      <label class="wide">目的<textarea id="purpose" rows="3"></textarea></label>
-      <label>想定利用者<input id="users" type="text"></label>
-      <label>追加要件・補足<textarea id="extra" rows="3"></textarea></label>
 
-      <label>実装方式
-        <select id="impl">
-          <option>静的Webツール</option><option>PowerShellスクリプト</option><option>C# Console</option>
-          <option>C# WinForms</option><option>C# WPF</option><option>未定</option>
-        </select>
-      </label>
-      <label>参照方式
-        <select id="refMode">
-          <option>reference/guide_context.md 同梱方式</option><option>GitHub Pages / raw 参照方式</option>
-          <option>MCP Fetch利用</option><option>未定</option>
-        </select>
-      </label>
-      <label>作成フェーズ
-        <select id="phase">
-          <option>設計文書のみ作成</option><option>設計文書と実装を作成</option><option>既存ツールをレビュー</option>
-          <option>リリース前文書を整備</option><option>既存ツールをガイド準拠に補完</option>
-        </select>
-      </label>
+    <label class="mode-select">生成モード
+      <select id="mode">
+        <option value="newTool">新規ツール作成</option>
+        <option value="thirdPartyReview">第三者AIレビュー</option>
+        <option value="changeRequest">変更申請作成</option>
+        <option value="decisionLog">判断ログ作成</option>
+      </select>
+    </label>
+
+    <p id="modeDescription" class="note mode-description"></p>
+
+    <div id="newToolFields" class="mode-panel">
+      <div class="grid">
+        <label>ツール名<input id="toolName" type="text"></label>
+        <label>対象リポジトリ名<input id="repoName" type="text"></label>
+        <label class="wide">目的<textarea id="purpose" rows="3"></textarea></label>
+        <label>想定利用者<input id="users" type="text"></label>
+        <label>追加要件・補足<textarea id="extra" rows="3"></textarea></label>
+
+        <label>実装方式
+          <select id="impl">
+            <option>静的Webツール</option><option>PowerShellスクリプト</option><option>C# Console</option>
+            <option>C# WinForms</option><option>C# WPF</option><option>未定</option>
+          </select>
+        </label>
+        <label>参照方式
+          <select id="refMode">
+            <option>reference/guide_context.md 同梱方式</option><option>GitHub Pages / raw 参照方式</option>
+            <option>MCP Fetch利用</option><option>未定</option>
+          </select>
+        </label>
+        <label>作成フェーズ
+          <select id="phase">
+            <option>設計文書のみ作成</option><option>設計文書と実装を作成</option><option>既存ツールをレビュー</option>
+            <option>リリース前文書を整備</option><option>既存ツールをガイド準拠に補完</option>
+          </select>
+        </label>
+      </div>
+
+      <fieldset>
+        <legend>利用機能</legend>
+        <div class="checks" id="features"></div>
+      </fieldset>
     </div>
 
-    <fieldset>
-      <legend>利用機能</legend>
-      <div class="checks" id="features"></div>
-    </fieldset>
+    <div id="thirdPartyReviewFields" class="mode-panel hidden">
+      <p class="note">第三者AIレビューは毎回使うものではなく、判断に迷ったときに使う任意工程です。</p>
+      <div class="grid">
+        <label class="wide">ユーザーの目的<textarea id="reviewPurpose" rows="3"></textarea></label>
+        <label class="wide">ユーザーの制約<textarea id="reviewConstraints" rows="3"></textarea></label>
+        <label>優先順位<input id="reviewPriority" type="text"></label>
+        <label>開発フェーズ<input id="reviewPhase" type="text"></label>
+        <label class="wide">実装AIの提案<textarea id="reviewProposal" rows="5"></textarea></label>
+        <label class="wide">ユーザーが迷っている点<textarea id="reviewConcern" rows="3"></textarea></label>
+        <label class="wide">追加で見てほしい観点<textarea id="reviewExtra" rows="3"></textarea></label>
+      </div>
+
+      <fieldset>
+        <legend>審査観点</legend>
+        <div class="checks" id="reviewCriteria"></div>
+      </fieldset>
+    </div>
+
+    <div id="changeRequestFields" class="mode-panel hidden">
+      <div class="grid">
+        <label class="wide">当初方針<textarea id="changeOriginalPolicy" rows="4"></textarea></label>
+        <label class="wide">変更対象<textarea id="changeTarget" rows="3"></textarea></label>
+        <label class="wide">実装AIに求めること<textarea id="changeRequestToAi" rows="4"></textarea></label>
+        <label class="wide">ユーザー判断が必要な範囲<textarea id="changeUserDecision" rows="3"></textarea></label>
+        <label class="wide">補足<textarea id="changeSupplement" rows="3"></textarea></label>
+      </div>
+    </div>
+
+    <div id="decisionLogFields" class="mode-panel hidden">
+      <div class="grid">
+        <label class="wide">論点<textarea id="logIssue" rows="3"></textarea></label>
+        <label class="wide">当初方針<textarea id="logOriginalPolicy" rows="3"></textarea></label>
+        <label class="wide">実装AIの提案<textarea id="logProposal" rows="4"></textarea></label>
+        <label>第三者レビューの判定<input id="logReviewDecision" type="text"></label>
+        <label>最終判断<input id="logFinalDecision" type="text"></label>
+        <label class="wide">理由<textarea id="logReason" rows="3"></textarea></label>
+        <label class="wide">実装AIへの指示<textarea id="logInstruction" rows="3"></textarea></label>
+        <label class="wide">後続課題<textarea id="logFollowUp" rows="3"></textarea></label>
+      </div>
+    </div>
 
     <div class="buttons">
       <button id="generateBtn" type="button">プロンプト生成</button>
@@ -63,7 +118,7 @@
     <p id="status" class="status" aria-live="polite"></p>
   </section>
 
-  <section class="card">
+  <section id="recommendSection" class="card">
     <h2>推奨同梱文書</h2>
     <ul id="recommended"></ul>
     <h3>将来候補</h3>

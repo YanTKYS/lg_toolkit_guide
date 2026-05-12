@@ -52,7 +52,7 @@
 
 ## 7. prompts 配下の主要プロンプト
 
-- [プロンプトビルダー](./tools/prompt-builder/) - 新規内部ツール作成用プロンプトをフォーム入力から生成するページ
+- [プロンプトビルダー](./tools/prompt-builder/) - 新規内部ツール作成、第三者AIレビュー、変更申請作成、判断ログ作成用プロンプトをフォーム入力から生成するページ
 - [Markdownプロンプト → HTML/XML風プロンプト変換ツール](./tools/prompt-html-converter/) - Markdown形式プロンプトをHTML/XML風の構造化プロンプトへ変換するページ
 
 - [prompts/README.md](./prompts/README.md)

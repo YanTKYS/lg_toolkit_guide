@@ -14,7 +14,32 @@
     "実ファイルを作成・更新する"
   ];
 
+  const reviewCriteriaList = [
+    "目的適合性",
+    "制約適合性",
+    "フェーズ適合性",
+    "UI/UX優先度",
+    "安全性",
+    "実装速度",
+    "保守性",
+    "逸脱理由"
+  ];
+
+  const modeDescriptions = {
+    newTool: "新規の内部ツール作成依頼プロンプトを生成します。",
+    thirdPartyReview: "判断に迷ったときだけ使う任意工程として、第三者AIレビュー依頼を生成します。",
+    changeRequest: "当初設計から変更する前に、実装AIへ変更申請を求める依頼を生成します。",
+    decisionLog: "論点・レビュー・最終判断を残すための判断ログ作成依頼を生成します。"
+  };
+
   const fields = {
+    mode: id("mode"),
+    modeDescription: id("modeDescription"),
+    newToolFields: id("newToolFields"),
+    thirdPartyReviewFields: id("thirdPartyReviewFields"),
+    changeRequestFields: id("changeRequestFields"),
+    decisionLogFields: id("decisionLogFields"),
+    recommendSection: id("recommendSection"),
     toolName: id("toolName"),
     repoName: id("repoName"),
     purpose: id("purpose"),
@@ -23,30 +48,40 @@
     impl: id("impl"),
     refMode: id("refMode"),
     phase: id("phase"),
+    reviewPurpose: id("reviewPurpose"),
+    reviewConstraints: id("reviewConstraints"),
+    reviewPriority: id("reviewPriority"),
+    reviewPhase: id("reviewPhase"),
+    reviewProposal: id("reviewProposal"),
+    reviewConcern: id("reviewConcern"),
+    reviewExtra: id("reviewExtra"),
+    changeOriginalPolicy: id("changeOriginalPolicy"),
+    changeTarget: id("changeTarget"),
+    changeRequestToAi: id("changeRequestToAi"),
+    changeUserDecision: id("changeUserDecision"),
+    changeSupplement: id("changeSupplement"),
+    logIssue: id("logIssue"),
+    logOriginalPolicy: id("logOriginalPolicy"),
+    logProposal: id("logProposal"),
+    logReviewDecision: id("logReviewDecision"),
+    logFinalDecision: id("logFinalDecision"),
+    logReason: id("logReason"),
+    logInstruction: id("logInstruction"),
+    logFollowUp: id("logFollowUp"),
     output: id("output"),
     status: id("status"),
     recommended: id("recommended"),
     future: id("future"),
-    features: id("features")
+    features: id("features"),
+    reviewCriteria: id("reviewCriteria")
   };
 
-  featureList.forEach(function (value, index) {
-    const label = document.createElement("label");
-    const checkbox = document.createElement("input");
-    const text = document.createElement("span");
-    const checkboxId = "feature_" + index;
+  createCheckboxes(fields.features, featureList, "feature_", false);
+  createCheckboxes(fields.reviewCriteria, reviewCriteriaList, "review_criteria_", true);
 
-    label.className = "check-item";
-    label.htmlFor = checkboxId;
-
-    checkbox.type = "checkbox";
-    checkbox.value = value;
-    checkbox.id = checkboxId;
-
-    text.textContent = value;
-
-    label.append(checkbox, text);
-    fields.features.appendChild(label);
+  fields.mode.addEventListener("change", function () {
+    updateModeView();
+    setStatus("");
   });
 
   id("generateBtn").addEventListener("click", function () {
@@ -56,14 +91,7 @@
   });
 
   id("clearBtn").addEventListener("click", function () {
-    [
-      fields.toolName,
-      fields.repoName,
-      fields.purpose,
-      fields.users,
-      fields.extra,
-      fields.output
-    ].forEach(function (element) {
+    allTextFields().forEach(function (element) {
       element.value = "";
     });
     fields.impl.selectedIndex = 0;
@@ -72,7 +100,11 @@
     fields.features.querySelectorAll("input").forEach(function (checkbox) {
       checkbox.checked = false;
     });
+    fields.reviewCriteria.querySelectorAll("input").forEach(function (checkbox) {
+      checkbox.checked = true;
+    });
     renderCandidates();
+    updateModeView();
     setStatus("入力をクリアしました。");
   });
 
@@ -80,17 +112,70 @@
   [fields.impl, fields.refMode].forEach(function (element) {
     element.addEventListener("change", renderCandidates);
   });
+  fields.features.addEventListener("change", renderCandidates);
 
+  updateModeView();
   renderCandidates();
 
   function id(name) {
     return document.getElementById(name);
   }
 
-  function checkedFeatures() {
-    return Array.from(fields.features.querySelectorAll("input:checked")).map(function (input) {
+  function createCheckboxes(container, values, prefix, checked) {
+    values.forEach(function (value, index) {
+      const label = document.createElement("label");
+      const checkbox = document.createElement("input");
+      const text = document.createElement("span");
+      const checkboxId = prefix + index;
+
+      label.className = "check-item";
+      label.htmlFor = checkboxId;
+
+      checkbox.type = "checkbox";
+      checkbox.value = value;
+      checkbox.id = checkboxId;
+      checkbox.checked = checked;
+
+      text.textContent = value;
+
+      label.append(checkbox, text);
+      container.appendChild(label);
+    });
+  }
+
+  function allTextFields() {
+    return Array.from(document.querySelectorAll("input[type='text'], textarea"));
+  }
+
+  function checkedValues(container) {
+    return Array.from(container.querySelectorAll("input:checked")).map(function (input) {
       return input.value;
     });
+  }
+
+  function checkedFeatures() {
+    return checkedValues(fields.features);
+  }
+
+  function checkedReviewCriteria() {
+    return checkedValues(fields.reviewCriteria);
+  }
+
+  function updateModeView() {
+    const mode = fields.mode.value;
+    const panels = {
+      newTool: fields.newToolFields,
+      thirdPartyReview: fields.thirdPartyReviewFields,
+      changeRequest: fields.changeRequestFields,
+      decisionLog: fields.decisionLogFields
+    };
+
+    Object.keys(panels).forEach(function (key) {
+      panels[key].classList.toggle("hidden", key !== mode);
+    });
+
+    fields.recommendSection.classList.toggle("hidden", mode !== "newTool");
+    fields.modeDescription.textContent = modeDescriptions[mode] || "";
   }
 
   function candidates() {
@@ -211,7 +296,25 @@
     return element.value.trim() || "（未入力）";
   }
 
+  function todayText() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+    return year + "-" + month + "-" + day;
+  }
+
   function buildPrompt() {
+    const builders = {
+      newTool: buildNewToolPrompt,
+      thirdPartyReview: buildThirdPartyReviewPrompt,
+      changeRequest: buildChangeRequestPrompt,
+      decisionLog: buildDecisionLogPrompt
+    };
+    return builders[fields.mode.value]();
+  }
+
+  function buildNewToolPrompt() {
     const result = candidates();
     return [
       "以下の条件で作業してください。",
@@ -245,6 +348,96 @@
       "- 個人情報保存・送信・ログ出力の有無",
       "- 判断しづらかった点",
       "- lg_toolkit_guide 側へフィードバックすべき改善点"
+    ].join("\n");
+  }
+
+  function buildThirdPartyReviewPrompt() {
+    return [
+      "あなたは、Vibe Codingにおける第三者レビュー担当です。",
+      "",
+      "実装は行わず、ユーザーの設計思想と実装AIの提案が一致しているかを審査してください。",
+      "",
+      "最終決定権はユーザーにあります。",
+      "ただし、ユーザーの設計にリスクや考慮不足がある場合は、それを明確に指摘してください。",
+      "",
+      "## 入力情報",
+      "- ユーザーの目的: " + valueOrPlaceholder(fields.reviewPurpose),
+      "- ユーザーの制約: " + valueOrPlaceholder(fields.reviewConstraints),
+      "- 優先順位: " + valueOrPlaceholder(fields.reviewPriority),
+      "- 開発フェーズ: " + valueOrPlaceholder(fields.reviewPhase),
+      "- 実装AIの提案: " + valueOrPlaceholder(fields.reviewProposal),
+      "- ユーザーが迷っている点: " + valueOrPlaceholder(fields.reviewConcern),
+      "- 追加で見てほしい観点: " + valueOrPlaceholder(fields.reviewExtra),
+      "",
+      "## 審査観点",
+      ...(checkedReviewCriteria().length > 0 ? checkedReviewCriteria() : reviewCriteriaList).map(function (criterion) {
+        return "- " + criterion;
+      }),
+      "",
+      "## 出力形式",
+      "## 総合判定",
+      "採用 / 条件付き採用 / 却下 / 要修正",
+      "",
+      "## 理由",
+      "",
+      "## ユーザーが守るべき点",
+      "",
+      "## ユーザーが差し戻すべき点",
+      "",
+      "## 実装AIへの差し戻し指示案"
+    ].join("\n");
+  }
+
+  function buildChangeRequestPrompt() {
+    return [
+      "当初設計から変更する場合は、必ず以下の形式で事前に変更申請してください。",
+      "ユーザー承認前に、大きな方針変更を実装しないでください。",
+      "",
+      "## 入力情報",
+      "- 当初方針: " + valueOrPlaceholder(fields.changeOriginalPolicy),
+      "- 変更対象: " + valueOrPlaceholder(fields.changeTarget),
+      "- 実装AIに求めること: " + valueOrPlaceholder(fields.changeRequestToAi),
+      "- ユーザー判断が必要な範囲: " + valueOrPlaceholder(fields.changeUserDecision),
+      "- 補足: " + valueOrPlaceholder(fields.changeSupplement),
+      "",
+      "## 変更申請",
+      "",
+      "- 変更対象:",
+      "- 当初方針:",
+      "- 変更後方針:",
+      "- 変更理由:",
+      "- 変更しない場合のリスク:",
+      "- 変更した場合のデメリット:",
+      "- ユーザー判断が必要か:"
+    ].join("\n");
+  }
+
+  function buildDecisionLogPrompt() {
+    return [
+      "以下の情報をもとに、判断ログを作成してください。",
+      "",
+      "## 入力情報",
+      "- 論点: " + valueOrPlaceholder(fields.logIssue),
+      "- 当初方針: " + valueOrPlaceholder(fields.logOriginalPolicy),
+      "- 実装AIの提案: " + valueOrPlaceholder(fields.logProposal),
+      "- 第三者レビューの判定: " + valueOrPlaceholder(fields.logReviewDecision),
+      "- 最終判断: " + valueOrPlaceholder(fields.logFinalDecision),
+      "- 理由: " + valueOrPlaceholder(fields.logReason),
+      "- 実装AIへの指示: " + valueOrPlaceholder(fields.logInstruction),
+      "- 後続課題: " + valueOrPlaceholder(fields.logFollowUp),
+      "",
+      "## 判断ログ",
+      "",
+      "### " + todayText() + " 論点名",
+      "",
+      "- 論点:",
+      "- 当初方針:",
+      "- 実装AIの提案:",
+      "- 第三者レビューの判定:",
+      "- 最終判断:",
+      "- 理由:",
+      "- 実装AIへの指示:",
+      "- 後続課題:"
     ].join("\n");
   }
 
