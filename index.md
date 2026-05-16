@@ -49,6 +49,7 @@
 - [guides/08_test_scenarios_template.md](./guides/08_test_scenarios_template.md)
 - [guides/09_operation_handover_template.md](./guides/09_operation_handover_template.md)
 - [guides/13_policy_deviation_review.md](./guides/13_policy_deviation_review.md)
+- [guides/14_github_actions_build_release.md](./guides/14_github_actions_build_release.md)
 
 ## 7. prompts 配下の主要プロンプト
 

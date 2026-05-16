@@ -69,6 +69,7 @@
 - `guides/07_prompt_template.md`（AI依頼文テンプレート）
 - `guides/11_non_web_tool_patterns.md`（非Webツール標準構成）
 - `guides/12_office_interop_checklist.md`（Office Interop向け実機確認チェック）
+- `guides/14_github_actions_build_release.md`（配布物向けGitHub Actions / Release方針）
 
 ### 6.3 配布前に使うもの
 

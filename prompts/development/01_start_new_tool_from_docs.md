@@ -136,6 +136,7 @@ Office Interopを使う場合の追記先:
 - C# / WinForms / Office Interop系ツールでは、Web標準構成ではなく非Web向け標準構成を使う。
 - Office Interopを利用する場合は、`guides/12_office_interop_checklist.md` の観点を設計・テスト・手順書へ反映する。
 - guide_context同梱方式の場合でも、Office Interop系ツールの実機確認項目を省略しない。
+- 配布zip、GitHub Actions通常ビルド、リリースビルド、GitHub Releaseが必要な場合は、`guides/14_github_actions_build_release.md` を参照する。
 
 ## guide_contextのみ参照する比較テスト時の追加ルール
 
@@ -151,6 +152,9 @@ Office Interopを使う場合の追記先:
 - reference/guide_context.md
 - reference/11_non_web_tool_patterns.md
 - reference/12_office_interop_checklist.md
+- reference/14_github_actions_build_release.md
+
+`reference/14_github_actions_build_release.md` は、配布zip、GitHub Actions、GitHub Releaseが必要な場合に同梱してください。
 
 同梱されている文書のみを参照してください。
 外部URLは参照しないでください。
