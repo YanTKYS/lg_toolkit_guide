@@ -67,6 +67,7 @@ reference/
   guide_context.md
   11_non_web_tool_patterns.md
   12_office_interop_checklist.md
+  14_github_actions_build_release.md
 ```
 
 使い分けの目安:
@@ -78,10 +79,14 @@ reference/
 | C# WinForms / WPF | `11_non_web_tool_patterns.md` |
 | Word / Excel / Outlook 操作あり | `12_office_interop_checklist.md` |
 | Office変換系 | `12_office_interop_checklist.md` |
+| GitHub Actionsでビルドする | `14_github_actions_build_release.md` |
+| GitHub Releaseを作成する | `14_github_actions_build_release.md` |
+| 配布zipを作成する | `14_github_actions_build_release.md` |
 
 - 追加ガイドが必要か判断に迷う場合は、作業開始前に候補を提示する。
 - 同梱されていない追加ガイドの内容を推測で補いすぎない。
 - 判断しづらい点は作業報告に記録する。
+- 配布物を作るツールでGitHub Actions / Releaseを使う場合は、`guides/14_github_actions_build_release.md` も参照する。
 
 ## 6. MCP Fetch方式
 

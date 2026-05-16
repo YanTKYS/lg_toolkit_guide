@@ -22,6 +22,9 @@
   - PDFを扱う
   - クリップボードを使う
   - 印刷を行う
+  - GitHub Actionsでビルドする
+  - GitHub Releaseを作成する
+  - 配布zipを作成する
 
 ## 推奨同梱文書の例
 
@@ -31,9 +34,12 @@
 | PowerShell / C# / 非Web系 | `reference/11_non_web_tool_patterns.md` |
 | C# WinForms / WPF | `reference/11_non_web_tool_patterns.md` |
 | Office操作 / Office変換あり | `reference/12_office_interop_checklist.md` |
+| GitHub Actionsでビルドする | `reference/14_github_actions_build_release.md` |
+| GitHub Releaseを作成する | `reference/14_github_actions_build_release.md` |
+| 配布zipを作成する | `reference/14_github_actions_build_release.md` |
 
 ## 注意
 
 - 推奨同梱文書は補助であり、最終判断は利用者が行う。
-- Office Interop、AD操作、ファイル更新、個人情報取扱いなどは実行環境や業務ルールに依存する。
+- Office Interop、AD操作、ファイル更新、個人情報取扱い、GitHub Actions / Releaseなどは実行環境や業務ルールに依存する。
 - 判断に迷う場合は、追加ガイドを同梱するか、作業前に確認する。

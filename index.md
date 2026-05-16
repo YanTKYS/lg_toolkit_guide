@@ -49,10 +49,11 @@
 - [guides/08_test_scenarios_template.md](./guides/08_test_scenarios_template.md)
 - [guides/09_operation_handover_template.md](./guides/09_operation_handover_template.md)
 - [guides/13_policy_deviation_review.md](./guides/13_policy_deviation_review.md)
+- [guides/14_github_actions_build_release.md](./guides/14_github_actions_build_release.md)
 
 ## 7. prompts 配下の主要プロンプト
 
-- [プロンプトビルダー](./tools/prompt-builder/) - 新規内部ツール作成用プロンプトをフォーム入力から生成するページ
+- [プロンプトビルダー](./tools/prompt-builder/) - 新規内部ツール作成、第三者AIレビュー、変更申請作成、判断ログ作成用プロンプトをフォーム入力から生成するページ
 - [Markdownプロンプト → HTML/XML風プロンプト変換ツール](./tools/prompt-html-converter/) - Markdown形式プロンプトをHTML/XML風の構造化プロンプトへ変換するページ
 
 - [prompts/README.md](./prompts/README.md)

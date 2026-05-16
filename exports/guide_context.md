@@ -203,6 +203,8 @@ C# WinFormsツール:
 詳細は `guides/11_non_web_tool_patterns.md` を参照する。
 - 非Web系では `11_non_web_tool_patterns.md` を追加同梱することを検討する。
 - Office Interop系では `12_office_interop_checklist.md` を追加同梱することを検討する。
+- 配布zip、GitHub Actions通常ビルド、リリースビルド、GitHub Releaseが必要なツールでは `14_github_actions_build_release.md` を追加同梱・参照することを検討する。
+- GitHub Actions / Release方針の詳細は `guides/14_github_actions_build_release.md` を参照する。
 
 ## 15. Markdown品質条件（作成先成果物にも適用）
 

@@ -19,6 +19,11 @@ body {
   padding: 0 16px 24px;
 }
 
+
+.lead {
+  margin-bottom: 16px;
+}
+
 .card {
   background: var(--card);
   border: 1px solid var(--line);
@@ -35,6 +40,23 @@ body {
 
 .wide {
   grid-column: 1 / -1;
+}
+
+.mode-select {
+  max-width: 420px;
+  margin-bottom: 12px;
+}
+
+.mode-description {
+  margin-top: 0;
+}
+
+.mode-panel {
+  margin-top: 12px;
+}
+
+.hidden {
+  display: none;
 }
 
 label {
@@ -126,4 +148,9 @@ button.sub {
   .checks {
     grid-template-columns: 1fr;
   }
+}
+
+.caution {
+  border-color: #f59e0b;
+  background: #fffbeb;
 }
