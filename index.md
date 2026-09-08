@@ -84,7 +84,7 @@
 1. `exports/guide_context.md` を `reference/guide_context.md` としてコピー。
 2. Vibe-coding開始時に `reference/guide_context.md` を参照させる。
 3. 必要に応じて `guides/` と `prompts/` の関連文書を追加提示。
-4. 実装前に設計・README・チェック・テスト・引継ぎ文書を先に作る。
+4. 案件に必要な文書を選び、実装・確認・テスト・文書整合まで完了する。
 
 ## 10. 注意事項
 

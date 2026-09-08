@@ -1,226 +1,77 @@
 # lg_toolkit_guide
 
-閉域または庁内ネットワーク環境で使う「小規模な内部業務支援ツール」を、Vibe-codingで安全・継続的に作るための**ドキュメント基盤**です。
+閉域または庁内ネットワークで使う小規模な内部業務支援ツールを、Vibe-codingで安全かつ実用的に開発するためのガイド集です。
 
-> このリポジトリは、アプリ本体のコード集ではありません。  
-> AIに毎回渡す共通前提、設計テンプレート、チェックリスト、引継ぎ資料を整備することが目的です。
+このリポジトリはアプリ本体や共通コードの置き場ではありません。恒久的な開発ルール、テンプレート、チェックリスト、薄い実行プロンプトを管理します。
 
-## 関連リポジトリとの役割分担
+## リポジトリの役割分担
 
-[`lg_toolkit_guide`](https://github.com/YanTKYS/lg_toolkit_guide) は、閉域自治体向け内部ツール開発のためのガイド・テンプレート・プロンプトを管理するリポジトリです。
+- **lg_toolkit_guide**: ガイド、文書テンプレート、プロンプト、ガイド利用の補助ツール
+- [**lg_toolkit**](https://github.com/YanTKYS/lg_toolkit): 再利用可能なコード部品
+- **個別ツールリポジトリ**: 各内部ツールの実装と案件固有文書
 
-再利用可能なコード部品やテンプレート実装は、別リポジトリ [`lg_toolkit`](https://github.com/YanTKYS/lg_toolkit) で管理します。
+`lg_toolkit_guide` 内に `common/` や共通ライブラリは設けません。本リポジトリ内の実装は、[プロンプトビルダー](https://yantkys.github.io/lg_toolkit_guide/tools/prompt-builder/) などガイド利用の補助ツールに限定します。
 
-個別の内部ツール本体は、さらに別の個別ツールリポジトリで管理します。
+## 対象
 
-このリポジトリに置く実装は、[プロンプトビルダー](https://yantkys.github.io/lg_toolkit_guide/tools/prompt-builder/)（新規ツール作成、第三者AIレビュー、変更申請作成、判断ログ作成に対応）や [Markdownプロンプト → HTML/XML風プロンプト変換ツール](https://yantkys.github.io/lg_toolkit_guide/tools/prompt-html-converter/) など、本ガイドを利用するための補助ツールに限定します。
+- JavaScriptによる小規模な静的Webツール
+- PowerShellによるファイル・CSV・Office・配布補助
+- C#によるGUIやexe配布の内部ツール
 
-## 1. このリポジトリでできること（最初に読む）
+基幹システム、公式記録の管理、法令判断や最終業務判断の自動化は対象外です。
 
-- 閉域環境前提の開発ルールを統一できる
-- 個人情報保護・外部依存回避・元ファイル保護の観点を標準化できる
-- ツール設計〜実装依頼〜テスト〜配布判定〜運用引継ぎまでをテンプレート化できる
-- 担当者が変わっても、同じ基準で開発・運用しやすくなる
-- 判断に迷ったときの第三者AIレビュー、変更申請、判断ログ作成を補助できる
+## 最短の使い方
 
-## 2. 対象とするツール
+1. `guides/00_policy.md` と `guides/01_ai_coding_rules.md` をAIに参照させる。
+2. `guides/07_prompt_template.md` を基に、案件固有の目的、対象、要件、制約、今回の作業を書く。
+3. 用途に必要な追加ガイドだけを参照させる。
+4. 調査、実施、確認、テスト、文書整合、報告まで一連の作業として依頼する。
 
-- JavaScript: IIS等に配置してブラウザ利用する小規模Webツール
-- PowerShell: ファイル整理、CSV処理、Office補助、配布補助
-- C#: GUIツール、exe配布、長期利用する内部ツール
+プロンプトへ閉域や標準成果物などの共通ルールを毎回再掲しません。開発で恒久的な不足が判明したら、プロンプトではなくガイドを更新します。
 
-## 3. 対象外
+GitHubを直接参照できない環境では、`exports/guide_context.md` を対象リポジトリの `reference/guide_context.md` として同梱してください。
 
-- 基幹システムの代替
-- 公式記録の保存・管理システム
-- 法令判断や最終業務判断の自動化
-- インターネット接続やクラウド依存を前提とする仕組み
+## ガイド一覧
 
-## 4. 重要方針（コードを先に作り込まない）
+### 常に参照
 
-現時点では、次を**作成しません**。
+- `guides/00_policy.md`: 全体方針、役割分担、完結性、簡素化
+- `guides/01_ai_coding_rules.md`: AIの実装・確認・報告ルール
 
-- 共通ライブラリ（JavaScript / PowerShell / C#）
-- サンプルアプリ
-- CI設定、ビルド設定、パッケージ管理設定
+### 必要に応じて参照
 
-先にドキュメント基盤を固め、同じ処理が複数回出現した段階で最小単位の共通化を検討します。
+- `guides/02_tool_design_template.md`: 設計
+- `guides/03_security_privacy_rules.md`: セキュリティ・個人情報
+- `guides/04_ui_ux_rules.md`: 一般職員が迷わないUI/UX
+- `guides/05_release_checklist.md`: 配布前確認
+- `guides/06_readme_template.md`: 現行仕様としてのREADME
+- `guides/07_prompt_template.md`: 薄い案件プロンプト
+- `guides/08_test_scenarios_template.md`: テスト記録
+- `guides/09_operation_handover_template.md`: 運用引継ぎ
+- `guides/10_reference_methods.md`: 参照方式
+- `guides/11_non_web_tool_patterns.md`: 非Webツール
+- `guides/12_office_interop_checklist.md`: Office Interop実機確認
+- `guides/13_policy_deviation_review.md`: 第三者AIレビュー、変更申請、判断ログ
+- `guides/14_github_actions_build_release.md`: 配布物向けActions / Release（全ツール必須ではない）
 
-## 5. Vibe-coding開始時の最短手順（5分版）
+## 文書運用の要点
 
-1. `guides/00_policy.md` と `guides/01_ai_coding_rules.md` をAIに読み込ませる。  
-2. `guides/07_prompt_template.md` の「新規ツール作成依頼」または「既存ツール修正依頼」をコピーする。  
-3. 依頼文に「対象業務」「入力」「出力」「対象外」を埋めて実装依頼する。  
-4. 実装後、`guides/05_release_checklist.md` と `guides/08_test_scenarios_template.md` で確認する。  
-5. `guides/06_readme_template.md` と `guides/09_operation_handover_template.md` を埋めて配布準備する。
+- READMEは現在の利用者が必要とする現行情報を中心にし、更新履歴はrelease notes等へ分離します。
+- 「できないこと」や既知の制限は網羅せず、利用・保守判断に必要なものだけ記載します。
+- 成果物は規模、段階、配布・引継ぎの必要性に応じて選び、空の文書を機械的に増やしません。
+- `exports/guide_context.md` は詳細集ではなく、開始時の最小ガードレールです。個別技術は追加ガイドへ委ねます。
 
-## 6. guidesの使い分け
+## prompts と補助ツール
 
-### 6.1 最低限読むもの
+`prompts/` はガイドを再掲する場所ではなく、案件固有情報を入力して作業を開始するための実行用プロンプトです。第三者AIレビュー、変更申請、判断ログのプロンプトは現在の役割を維持します。
 
-- `guides/00_policy.md`（全体方針）
-- `guides/01_ai_coding_rules.md`（AI実装ルール）
+- [prompts/README.md](prompts/README.md)
+- [プロンプトビルダー](https://yantkys.github.io/lg_toolkit_guide/tools/prompt-builder/)
+- [Markdownプロンプト → HTML/XML風変換](https://yantkys.github.io/lg_toolkit_guide/tools/prompt-html-converter/)
 
-### 6.2 設計時に使うもの
+## GitHub Pages
 
-- `guides/02_tool_design_template.md`（設計ひな型）
-- `guides/03_security_privacy_rules.md`（個人情報・ファイル安全）
-- `guides/04_ui_ux_rules.md`（職員向けUI/UX）
-- `guides/07_prompt_template.md`（AI依頼文テンプレート）
-- `guides/11_non_web_tool_patterns.md`（非Webツール標準構成）
-- `guides/12_office_interop_checklist.md`（Office Interop向け実機確認チェック）
-- `guides/14_github_actions_build_release.md`（配布物向けGitHub Actions / Release方針）
+- 公開入口: https://yantkys.github.io/lg_toolkit_guide/
+- 最小ガードレール（raw）: https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md
 
-### 6.3 配布前に使うもの
-
-- `guides/05_release_checklist.md`（配布可否チェック）
-- `guides/08_test_scenarios_template.md`（正常/異常/再実行等の確認）
-- `guides/06_readme_template.md`（利用者向けREADME整備）
-
-### 6.4 運用引継ぎ時に使うもの
-
-- `guides/09_operation_handover_template.md`（部署間移管・異動時の引継ぎ）
-- `guides/06_readme_template.md`（操作説明・制約・問い合わせ先）
-
-## 7. 最初の実証用ツールを作るときの推奨手順
-
-1. **題材を小さく選ぶ**  
-   例: CSV整形、日付変換、定型文生成など「1画面/1機能」で完結するテーマにする。
-2. **設計を先に固定する**  
-   `guides/02_tool_design_template.md` を埋め、対象外機能を明記する。
-3. **安全条件を先に宣言する**  
-   個人情報非保存、外部通信なし、元ファイル上書きなしを依頼文に明記する。
-4. **AIへ最小実装を依頼する**  
-   `guides/07_prompt_template.md` を使い、過剰機能を避ける。
-5. **配布前確認を実施する**  
-   `guides/05` と `guides/08` で正常系・異常系・再実行系を確認する。
-6. **説明と引継ぎ資料を残す**  
-   `guides/06` と `guides/09` を埋め、担当変更に備える。
-
-## 8. 推奨する標準フロー
-
-1. 業務課題を短く定義する
-2. `guides/02` で設計する
-3. `guides/07` で実装依頼する
-4. `guides/03` `guides/04` で実装内容を点検する
-5. `guides/05` `guides/08` で配布可否を判定する
-6. `guides/06` `guides/09` で利用説明と引継ぎを整える
-
-## 9. 注意事項
-
-- 個人情報を保存・送信・ログ出力しない設計を原則とする
-- 元ファイルの上書きや削除など、破壊的処理は原則避ける
-- ツール出力は補助情報であり、最終判断は利用者・所管部署が行う
-- 追加インストールや管理者権限を当然の前提にしない
-
-## 10. 今後の拡張予定
-
-- よく使う業務カテゴリ別の設計例（CSV、日付計算、帳票補助など）
-- 言語別の詳細テストデータ作成例（JavaScript / PowerShell / C#）
-- 部署内配布手順テンプレート
-- 変更管理・版管理の運用テンプレート
-
-
-## 11. prompts配下（AI実行用プロンプト）
-
-- `prompts/` は、`guides` を実務で使うための「AI投入用プロンプト集」です。
-- 手順書作成やレビューを行う際は、`prompts/README.md` と `prompts/manuals/` を使用してください。
-- `prompts/development/` には、新規開発開始・生成物レビュー・配布前文書整備のプロンプトを配置します。
-- `prompts/review/` には、実装AIの提案や方針逸脱を第三者レビューするためのプロンプトを配置します。
-- GitHub Pages上の補助ページとして、プロンプトビルダー（`tools/prompt-builder/`）を利用できます。  
-  `https://yantkys.github.io/lg_toolkit_guide/tools/prompt-builder/`
-- GitHub Pages上の補助ページとして、Markdownプロンプト → HTML/XML風プロンプト変換ツール（`tools/prompt-html-converter/`）を利用できます。
-  `https://yantkys.github.io/lg_toolkit_guide/tools/prompt-html-converter/`
-- 追加ガイド同梱方式の候補提示については、`tools/prompt-builder/README.md` の設計メモを参照してください。
-- 使う前に、必ず `guides/00_policy.md` と `guides/01_ai_coding_rules.md` を確認してください。
-
-
-## 12. examples配下（ドキュメント記入例）
-
-- `examples/` は、`guides` と `prompts` を使って実際にどう記入するかを示すサンプル文書集です。
-- 実装コードは含まず、設計書・README・チェックリスト・手順書の記入例のみを扱います。
-
-- `examples/01_filename_sanitizer`: 初期の記入例
-- `examples/02_filename_sanitizer_context_result`: `reference/guide_context.md` 単体参照で生成した実証成功例
-- 詳細: `examples/README.md`
-
-
-## 13. Vibe-coding時の参照方法（GitHub URLを直接読めない場合）
-
-Vibe-coding実行環境によっては、外部GitHubへのアクセスが制限され、`git clone` やURL参照に失敗する場合があります（例: `CONNECT tunnel failed, response 403`）。
-
-その場合は、次の順で対応してください。
-
-1. `exports/guide_context.md` をプロンプトに貼り付けて参照させる。  
-2. 可能であれば `exports/guide_context.md` を対象リポジトリの `reference/guide_context.md` としてコピーして同梱する。  
-3. さらに必要な場合は `guides/` と `prompts/` の必要箇所を抜粋して追加提示する。  
-4. ガイド本文が参照できない状態で推測実装は行わず、最小ガイド提示を優先する。
-
-補足:
-
-- `exports/guide_context.md` は、同梱方式でも使えるように標準成果物名と標準構成を含む。
-- 標準成果物には、ルート直下の `development_report.md` も含む。
-- 作成先ツールでは、作業後にMarkdownとコード（HTML/CSS/JS）の整形状態を実確認する。
-- `lg_toolkit_guide` 本体の中核ガイド文書は `guides/` に置く。
-- 実装AIの方針逸脱や反論の審査には `guides/13_policy_deviation_review.md` と `prompts/review/` を使用する。
-- 実ツール側では、設計・チェック・引継ぎ文書置き場として `docs/` を使用してよい。
-
-推奨運用:
-
-- 通常時: `README.md` → `guides/` → `prompts/` → `examples/` の順で参照。
-- 参照不能時: `exports/guide_context.md` を起点にし、足りない情報だけ追加提示。
-
-### 13.1 推奨参照順（Vibe-coding時）
-
-次の順で参照可否を確認してください。
-
-1. GitHub Pages  
-   `https://yantkys.github.io/lg_toolkit_guide/`
-2. raw.githubusercontent.com  
-   `https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md`
-3. 対象リポジトリ内に同梱した `reference/guide_context.md`
-4. MCP FetchでGitHub Pagesまたはraw URLを取得
-5. GitHubリポジトリURL  
-   `https://github.com/YanTKYS/lg_toolkit_guide`
-
-> 実務上もっとも確実なのは、対象リポジトリへ `reference/guide_context.md` を同梱する方式です。
-
-### 13.2 参照確認プロンプト例
-
-```text
-まず、以下の順で開発ガイドを参照できるか確認してください。
-
-1. GitHub Pages
-https://yantkys.github.io/lg_toolkit_guide/
-
-2. raw.githubusercontent.com
-https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md
-
-3. MCP Fetch
-MCP Fetchが利用可能な場合は、上記いずれかのURLをfetchツールで取得してください。
-
-いずれかを参照できた場合は、guide_context の内容を要約してください。
-
-どちらも参照できない場合は、実装を開始せず、参照できない理由を報告してください。
-その場合は、対象リポジトリ内の reference/guide_context.md として同梱する方式に切り替えます。
-```
-
-
-
-## 14. GitHub Pagesでの参照
-
-本リポジトリは、GitHub Pagesで次のURLから参照できます。
-
-- 公開URL: `https://yantkys.github.io/lg_toolkit_guide/`
-
-Pagesの入口文書は `index.md` です。
-
-### 14.1 参照可否は実行環境ごとに異なる
-
-同じURLでも、Vibe-coding実行環境により結果が異なる場合があります（閲覧可 / 403 / スコープ外）。  
-そのため、次の優先順で運用してください。
-
-1. GitHub Pages URL を試す。  
-2. 失敗時は `exports/guide_context.md` を対象リポジトリへ `reference/guide_context.md` として同梱する。  
-3. さらに不足する場合は、必要な `guides/` と `prompts/` の該当部分のみ追加提示する。  
-4. ガイド未参照状態では実装を開始しない。
+Pagesやrawを参照できない場合は同梱方式へ切り替え、必要な追加ガイドだけを提示します。ガイドが読めない状態で推測実装を始めません。
