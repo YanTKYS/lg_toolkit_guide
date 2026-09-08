@@ -67,9 +67,34 @@ GitHub上のガイドを参照できない環境では、このファイルを�
 - 設計逸脱: `guides/13_policy_deviation_review.md`
 - 配布物がある場合のActions / Release: `guides/14_github_actions_build_release.md`
 
-README、設計、チェックリスト、テスト、引継ぎ、手順書、開発報告書は、規模・段階・配布や引継ぎの必要性に応じて選ぶ。標準名は既存テンプレートに従うが、すべてを機械的に作成しない。
+README、設計、チェックリスト、テスト、引継ぎ、手順書、開発報告書は、規模・段階・配布や引継ぎの必要性に応じて選び、すべてを機械的に作成しない。
 
-## 9. 方針逸脱と報告
+## 9. 単体同梱時の最低限の成果物ルール
+
+`reference/guide_context.md` だけを参照する場合も、必要な成果物の名称と配置を安易に独自化しない。
+
+代表的な標準名:
+
+- `README.md`
+- `development_report.md`
+- `docs/tool_design.md`
+- `docs/release_checklist.md`
+- `docs/test_scenarios.md`
+- `docs/operation_handover.md`
+- `manuals/admin_manual.md`
+- `manuals/operator_manual.md`
+- `manuals/user_manual.md`
+- `src/` 配下の実装ファイル
+
+これらはすべての案件で必須という意味ではない。案件の規模・段階・配布・引継ぎの必要性に応じて必要なものだけ作成する。
+
+`development_report.md` を作成する場合はルート直下に1つだけ置き、作成・更新ファイルの記載を実際の差分と一致させる。
+
+Markdown、HTML、CSS、JavaScript、C#等は、raw表示でも読める通常の改行とインデントを維持し、数行や1行へ圧縮しない。
+
+必要な専門ガイドが同梱されておらず判断材料が足りない場合は、専門要件を推測で補わず、不足している参照情報を報告する。
+
+## 10. 方針逸脱と報告
 
 実装AIの反論は一律に拒否せず、ユーザーの考慮不足の補完か、一般論・過剰設計への逸脱か、実装しやすい方向への逃避かを確認する。大きな変更は理由、利点、リスク、代替案を提示し、最終判断はユーザーが行う。
 
