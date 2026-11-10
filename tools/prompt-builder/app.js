@@ -25,13 +25,14 @@
     "逸脱理由"
   ];
 
-  // 利用先での同梱配置名 → このリポジトリ上の原本パス（実在するファイルのみ登録する）
+  // 利用先での同梱配置名 → このリポジトリ上の原本パス（main にコミット済みの実在ファイルのみ登録する）
   const REPO_BLOB_BASE = "https://github.com/YanTKYS/lg_toolkit_guide/blob/main/";
   const REPO_RAW_BASE = "https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/";
   const sourcePaths = {
     "reference/guide_context.md": "exports/guide_context.md",
     "reference/11_non_web_tool_patterns.md": "guides/11_non_web_tool_patterns.md",
-    "reference/12_office_interop_checklist.md": "guides/12_office_interop_checklist.md"
+    "reference/12_office_interop_checklist.md": "guides/12_office_interop_checklist.md",
+    "reference/03_security_privacy_rules.md": "guides/03_security_privacy_rules.md"
   };
 
   const modeDescriptions = {
@@ -80,7 +81,6 @@
     output: id("output"),
     status: id("status"),
     recommended: id("recommended"),
-    future: id("future"),
     features: id("features"),
     reviewCriteria: id("reviewCriteria")
   };
@@ -187,32 +187,23 @@
     fields.modeDescription.textContent = modeDescriptions[mode] || "";
   }
 
+  // 推薦するのは sourcePaths に登録された実在文書のみ。専用ガイドがない分野（AD、PDF等）は推薦しない。
   function candidates() {
     const recommended = new Set(["reference/guide_context.md"]);
-    const future = [];
     const impl = fields.impl.value;
     const features = checkedFeatures();
 
+    if (features.includes("個人情報を含む可能性があるデータを扱う") || features.includes("実ファイルを作成・更新する")) {
+      recommended.add("reference/03_security_privacy_rules.md");
+    }
     if (["PowerShellスクリプト", "C# Console", "C# WinForms", "C# WPF"].includes(impl)) {
       recommended.add("reference/11_non_web_tool_patterns.md");
     }
     if (features.includes("Office Word / Excel / Outlookを操作する") || features.includes("Office文書を変換する")) {
       recommended.add("reference/12_office_interop_checklist.md");
     }
-    if (features.includes("Active Directoryを操作する")) {
-      future.push("reference/13_ad_operation_checklist.md");
-    }
-    if (features.includes("PDFを扱う")) {
-      future.push("reference/14_document_conversion_checklist.md");
-    }
-    if (features.includes("個人情報を含む可能性があるデータを扱う")) {
-      future.push("個人情報取扱い強化ガイド");
-    }
-    if (features.includes("実ファイルを作成・更新する")) {
-      future.push("ファイル操作安全チェックリスト");
-    }
 
-    return { recommended: Array.from(recommended), future: future };
+    return Array.from(recommended);
   }
 
   function blobUrl(ref) {
@@ -230,20 +221,10 @@
   }
 
   function renderCandidates() {
-    const result = candidates();
     fields.recommended.innerHTML = "";
-    result.recommended.forEach(function (text) {
+    candidates().forEach(function (text) {
       appendLi(fields.recommended, text, blobUrl(text));
     });
-
-    fields.future.innerHTML = "";
-    if (result.future.length === 0) {
-      appendLi(fields.future, "（該当なし）");
-    } else {
-      result.future.forEach(function (text) {
-        appendLi(fields.future, text);
-      });
-    }
   }
 
   function appendLi(list, text, url) {
@@ -262,7 +243,7 @@
 
   function referenceText() {
     const mode = fields.refMode.value;
-    const refs = candidates().recommended;
+    const refs = candidates();
 
     if (mode === "reference/guide_context.md 同梱方式") {
       return [
@@ -350,7 +331,7 @@
   }
 
   function buildNewToolPrompt() {
-    const result = candidates();
+    const recommended = candidates();
     return [
       "以下の条件で作業してください。",
       "",
@@ -365,7 +346,7 @@
       "- 実装方式: " + fields.impl.value,
       "- 作成フェーズ: " + fields.phase.value,
       "- 利用機能: " + (checkedFeatures().join(" / ") || "（なし）"),
-      "- 推奨同梱文書（同梱時の配置名）: " + result.recommended.join(" / "),
+      "- 推奨同梱文書（同梱時の配置名）: " + recommended.join(" / "),
       "- 追加要件: " + valueOrPlaceholder(fields.extra),
       "",
       "## 作成フェーズ別の指示",
