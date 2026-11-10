@@ -43,3 +43,10 @@
 - 推奨同梱文書は補助であり、最終判断は利用者が行う。
 - Office Interop、AD操作、ファイル更新、個人情報取扱い、GitHub Actions / Releaseなどは実行環境や業務ルールに依存する。
 - 判断に迷う場合は、追加ガイドを同梱するか、作業前に確認する。
+
+## 原本リンクと取得URL
+
+- 画面の候補名（`reference/...`）は利用先での同梱配置名。実在する推奨文書には、このリポジトリ上の原本（GitHub blob）への「原本を開く」リンクを付ける。
+- 外部参照方式・MCP Fetch方式の生成プロンプトには、原本のraw URLを含める。同梱方式のプロンプトには外部URLを含めない。
+- 配置名と原本パスの対応は `app.js` の `sourcePaths` で管理する。対応は `reference/guide_context.md` → `exports/guide_context.md`、`reference/11_...` → `guides/11_...`、`reference/12_...` → `guides/12_...`。
+- 実体のない将来候補にはリンクを付けない。URLを推測生成しない。
