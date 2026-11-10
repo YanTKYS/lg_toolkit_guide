@@ -25,6 +25,15 @@
     "逸脱理由"
   ];
 
+  // 利用先での同梱配置名 → このリポジトリ上の原本パス（実在するファイルのみ登録する）
+  const REPO_BLOB_BASE = "https://github.com/YanTKYS/lg_toolkit_guide/blob/main/";
+  const REPO_RAW_BASE = "https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/";
+  const sourcePaths = {
+    "reference/guide_context.md": "exports/guide_context.md",
+    "reference/11_non_web_tool_patterns.md": "guides/11_non_web_tool_patterns.md",
+    "reference/12_office_interop_checklist.md": "guides/12_office_interop_checklist.md"
+  };
+
   const modeDescriptions = {
     newTool: "新規の内部ツール作成依頼プロンプトを生成します。",
     thirdPartyReview: "判断に迷ったときだけ使う任意工程として、第三者AIレビュー依頼を生成します。",
@@ -206,11 +215,25 @@
     return { recommended: Array.from(recommended), future: future };
   }
 
+  function blobUrl(ref) {
+    return sourcePaths[ref] ? REPO_BLOB_BASE + sourcePaths[ref] : "";
+  }
+
+  function rawUrl(ref) {
+    return sourcePaths[ref] ? REPO_RAW_BASE + sourcePaths[ref] : "";
+  }
+
+  function rawUrlLines(refs) {
+    return refs.filter(rawUrl).map(function (ref) {
+      return "- " + sourcePaths[ref] + ": " + rawUrl(ref);
+    });
+  }
+
   function renderCandidates() {
     const result = candidates();
     fields.recommended.innerHTML = "";
     result.recommended.forEach(function (text) {
-      appendLi(fields.recommended, text);
+      appendLi(fields.recommended, text, blobUrl(text));
     });
 
     fields.future.innerHTML = "";
@@ -223,9 +246,17 @@
     }
   }
 
-  function appendLi(list, text) {
+  function appendLi(list, text, url) {
     const item = document.createElement("li");
     item.textContent = text;
+    if (url) {
+      const link = document.createElement("a");
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "原本を開く";
+      item.append(" ", link);
+    }
     list.appendChild(item);
   }
 
@@ -254,18 +285,21 @@
         "1. GitHub Pages",
         "https://yantkys.github.io/lg_toolkit_guide/",
         "",
-        "2. raw.githubusercontent.com",
-        "https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md",
+        "2. raw.githubusercontent.com（推奨文書の直接URL）",
+        ...rawUrlLines(refs),
         "",
-        "どちらも参照できない場合は、実装を開始せず、参照できない理由を報告してください。"
+        "参照できない文書がある場合は、実装を開始せず、参照できない理由を報告してください。",
+        "URLの記載だけで参照できたとみなさず、実際に内容を取得できたことを確認してから利用してください。"
       ].join("\n");
     }
 
     if (mode === "MCP Fetch利用") {
       return [
-        "MCP Fetchが利用可能な場合は、GitHub Pagesまたはraw URLをfetchツールで取得してください。",
+        "MCP Fetchが利用可能な場合は、次の文書をfetchツールで取得してください。",
+        ...rawUrlLines(refs),
         "",
-        "取得できない場合は、実装を開始せず、参照できない理由を報告してください。",
+        "取得できない場合は、推測で実装せず、実装を開始せずに参照できない理由を報告してください。",
+        "URLの記載だけで取得できたとみなさず、実際に内容を取得できたことを確認してから利用してください。",
         "",
         "MCP Fetchを使う場合でも、庁内URL、内部IP、認証付きページ、個人情報を含むページを取得対象にしないでください。"
       ].join("\n");
@@ -275,7 +309,8 @@
       "まず、利用可能なガイド参照方式を確認してください。",
       "",
       "可能であれば、対象リポジトリ内に reference/guide_context.md を同梱する方式を優先してください。",
-      "外部参照を使う場合は、GitHub Pages、raw、MCP Fetchの順に確認してください。",
+      "外部参照を使う場合は、GitHub Pages、raw、MCP Fetchの順に確認してください。rawの直接URLは次のとおりです。",
+      ...rawUrlLines(refs),
       "いずれも参照できない場合は、実装を開始せず、ガイド本文の提示または同梱を依頼してください。"
     ].join("\n");
   }
@@ -330,7 +365,7 @@
       "- 実装方式: " + fields.impl.value,
       "- 作成フェーズ: " + fields.phase.value,
       "- 利用機能: " + (checkedFeatures().join(" / ") || "（なし）"),
-      "- 推奨同梱文書: " + result.recommended.join(" / "),
+      "- 推奨同梱文書（同梱時の配置名）: " + result.recommended.join(" / "),
       "- 追加要件: " + valueOrPlaceholder(fields.extra),
       "",
       "## 作成フェーズ別の指示",
