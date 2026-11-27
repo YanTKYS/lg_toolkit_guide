@@ -75,3 +75,19 @@ GitHubを直接参照できない環境では、`exports/guide_context.md` を�
 - 最小ガードレール（raw）: https://raw.githubusercontent.com/YanTKYS/lg_toolkit_guide/main/exports/guide_context.md
 
 Pagesやrawを参照できない場合は同梱方式へ切り替え、必要な追加ガイドだけを提示します。ガイドが読めない状態で推測実装を始めません。
+
+## ライセンス
+
+自作の成果物は、種類ごとに次のライセンスで提供します。同じファイルに両方を適用するものではありません。
+
+| 対象 | 種類 | ライセンス | 全文 |
+|---|---|---|---|
+| `guides/`、`prompts/`、`examples/`、`exports/`、`README.md`、`index.md`、`tools/*/README.md`、`tools/prompt-builder/templates/` | ガイド、文書テンプレート、プロンプト、記入例、説明文書 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [LICENSE](LICENSE) |
+| `tools/` 配下の HTML・CSS・JavaScript・SVG（上の行の文書・テンプレートを除く） | 補助ツールの実装コード、アイコン | MIT | [LICENSE-CODE](LICENSE-CODE) |
+
+- 文書中のコード例・設定例、コピーして使うテンプレートやプロンプトは、その文書の一部として CC BY 4.0 で提供します。`exports/guide_context.md` を `reference/guide_context.md` として他のリポジトリへ同梱する場合も同じです。
+- CC BY 4.0 の文書を利用・改変・再配布するときは、[CC BY 4.0 のリーガルコード](https://creativecommons.org/licenses/by/4.0/legalcode)（[LICENSE](LICENSE)）の条件に従ってください。クレジット表示の例：「出典：lg_toolkit_guide（YanTKYS）https://github.com/YanTKYS/lg_toolkit_guide 、CC BY 4.0」。改変した場合は、その旨も示してください。
+- 補助ツールのコードを利用・再配布するときは、[LICENSE-CODE](LICENSE-CODE) の著作権表示と許諾文を残してください。
+- ガイドで言及するデザインシステム、製品、外部サービス等の名称・商標は各権利者に帰属し、上記ライセンスの対象外です。リンク先の外部資料は、それぞれの条件に従います。
+
+Copyright (c) 2026 YanTKYS
