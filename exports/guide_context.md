@@ -107,3 +107,7 @@ Markdown、HTML、CSS、JavaScript、C#等は、raw表示でも読める通常�
 実装AIの反論は一律に拒否せず、ユーザーの考慮不足の補完か、一般論・過剰設計への逸脱か、実装しやすい方向への逃避かを確認する。大きな変更は理由、利点、リスク、代替案を提示し、最終判断はユーザーが行う。
 
 作業後は、変更ファイル、実施したテスト、文書整合、未確認事項、あえて変更しなかったものを、実際の差分と一致させて報告する。
+
+---
+
+出典：lg_toolkit_guide（YanTKYS）https://github.com/YanTKYS/lg_toolkit_guide 、CC BY 4.0（https://creativecommons.org/licenses/by/4.0/ ）
